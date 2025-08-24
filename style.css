@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'MyFont', Arial, sans-serif;
+    font-weight: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    background-color: #15b7ff;
+    height: 100%;
+    background-image: url("./images/background-image.svg");
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+header {
+    font-size: 3vw;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.you-box, .hobby, .achievement {
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    margin: 20px auto;
+    position: relative;
+}
+
+.you-box {
+    background-color: #f0f0f0ad;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.hobby {
+    background-color: #afffddad;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.achievement {
+    background-color: rgba(219, 175, 255, 0.68);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.name {
+    width: 200px;
+    height: 100px;
+    font-size: 30px;
+    margin-top: -15px;
+}
+
+.avatar {
+    position: relative;
+    width: 65%;
+    height: 100vh;
+}
+
+.avatar2 {
+    border-radius: 10px;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    position: absolute;
+    width: 30%;
+    height: auto;
+    top: -90px;
+    left: 100%;
+    max-width: 120px;
+    min-width: 80px;
+}
+
+.hobby h3, .achievement h3 {
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+.hobby-item {
+    background-color: rgba(240, 240, 240, 0.55);
+    padding: 11px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    display: flex;
+}
+
+.toggle-btn {
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 15px;
+    width: 100%;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.hobby .toggle-btn {
+    background-color: #4CAF50;
+}
+
+.achievement .toggle-btn {
+    background-color: rgba(189, 135, 225, 0.9);
+}
+
+.toggle-btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+    z-index: -1;
+}
+
+h4 {
+    font-size: 60%;
+    margin: 5px 0;
+}
+
+h1 {
+    margin: 15px 0;
+    font-size: 25px;
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('myfont.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 交互效果 */
+@media (hover: hover) {
+    .hobby-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: rgba(240, 240, 240, 0.8);
+    }
+
+    .hobby .toggle-btn:hover {
+        background-color: #45a049;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .achievement .toggle-btn:hover {
+        background-color: rgba(169, 115, 205, 0.9);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .toggle-btn:hover::after {
+        animation: ripple 0.6s ease-out;
+    }
+}
+
+.hobby-item:active, .toggle-btn:active {
+    transform: scale(0.98);
+}
+
+.hobby-item:active {
+    background-color: rgba(240, 240, 240, 0.8);
+}
+
+.toggle-btn:active {
+    transform: scale(0.96);
+}
+
+.toggle-btn:active::after {
+    animation: ripple 0.4s ease-out;
+}
+
+.hobby .toggle-btn:active {
+    background-color: #3d8b40;
+}
+
+.achievement .toggle-btn:active {
+    background-color: rgba(149, 95, 185, 0.9);
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .hobby, .achievement {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .hobby-item {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+
+    .toggle-btn {
+        padding: 14px;
+        font-size: 16px;
+        min-height: 48px;
+    }
+}
