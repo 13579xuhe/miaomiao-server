@@ -109,3 +109,166 @@ document.addEventListener('DOMContentLoaded', function() {
         setupCollapsibleSection('achievement');
     }, 100));
 });
+
+const carouselData = [
+    {
+        image: "./images/1.jpg",
+    },
+    {
+        image: "./images/2.jpg",
+    },
+    {
+        image: "./images/3.jpg",
+    },
+    {
+        image: "./images/4.jpg",
+    }
+];
+
+// 轮播图类
+class Carousel {
+    constructor(container, data) {
+        this.container = container;
+        this.data = data;
+        this.slides = container.querySelector('.carousel-slides');
+        this.prevBtn = container.querySelector('.carousel-btn-prev');
+        this.nextBtn = container.querySelector('.carousel-btn-next');
+        this.indicatorsContainer = container.querySelector('.carousel-indicators');
+        this.currentIndex = 0;
+        this.intervalId = null;
+        this.autoPlayDelay = 3000; // 3秒自动播放
+
+        this.init();
+    }
+
+    // 初始化轮播图
+    init() {
+        this.createSlides();
+        this.createIndicators();
+        this.setActiveSlide();
+        this.addEventListeners();
+        this.startAutoPlay();
+    }
+
+    // 创建幻灯片
+    createSlides() {
+        this.slides.innerHTML = '';
+
+        this.data.forEach(item => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            slide.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}">
+                    `;
+            this.slides.appendChild(slide);
+        });
+    }
+
+    // 创建指示器
+    createIndicators() {
+        this.indicatorsContainer.innerHTML = '';
+
+        this.data.forEach((_, index) => {
+            const indicator = document.createElement('div');
+            indicator.className = 'carousel-indicator';
+            indicator.dataset.index = index;
+            this.indicatorsContainer.appendChild(indicator);
+        });
+    }
+
+    // 设置当前活动幻灯片
+    setActiveSlide() {
+        // 移除所有活动状态
+        const slides = this.slides.querySelectorAll('.carousel-slide');
+        const indicators = this.indicatorsContainer.querySelectorAll('.carousel-indicator');
+
+        slides.forEach(slide => slide.classList.remove('active'));
+        indicators.forEach(indicator => indicator.classList.remove('active'));
+
+        // 设置当前活动状态
+        slides[this.currentIndex].classList.add('active');
+        indicators[this.currentIndex].classList.add('active');
+
+        // 移动幻灯片位置
+        this.slides.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+    }
+
+    // 添加事件监听
+    addEventListeners() {
+        // 上一张按钮
+        this.prevBtn.addEventListener('click', () => {
+            this.prevSlide();
+            this.restartAutoPlay();
+        });
+
+        // 下一张按钮
+        this.nextBtn.addEventListener('click', () => {
+            this.nextSlide();
+            this.restartAutoPlay();
+        });
+
+        // 指示器点击
+        this.indicatorsContainer.querySelectorAll('.carousel-indicator').forEach(indicator => {
+            indicator.addEventListener('click', () => {
+                this.goToSlide(parseInt(indicator.dataset.index));
+                this.restartAutoPlay();
+            });
+        });
+
+        // 鼠标悬停时暂停自动播放
+        this.container.addEventListener('mouseenter', () => {
+            this.stopAutoPlay();
+        });
+
+        // 鼠标离开时恢复自动播放
+        this.container.addEventListener('mouseleave', () => {
+            this.startAutoPlay();
+        });
+    }
+
+    // 切换到上一张幻灯片
+    prevSlide() {
+        this.currentIndex = this.currentIndex === 0 ? this.data.length - 1 : this.currentIndex - 1;
+        this.setActiveSlide();
+    }
+
+    // 切换到下一张幻灯片
+    nextSlide() {
+        this.currentIndex = this.currentIndex === this.data.length - 1 ? 0 : this.currentIndex + 1;
+        this.setActiveSlide();
+    }
+
+    // 跳转到指定幻灯片
+    goToSlide(index) {
+        this.currentIndex = index;
+        this.setActiveSlide();
+    }
+
+    // 开始自动播放
+    startAutoPlay() {
+        this.stopAutoPlay();
+        this.intervalId = setInterval(() => {
+            this.nextSlide();
+        }, this.autoPlayDelay);
+    }
+
+    // 停止自动播放
+    stopAutoPlay() {
+        if (this.intervalId) {
+            clearInterval(this.intervalId);
+            this.intervalId = null;
+        }
+    }
+
+    // 重新开始自动播放
+    restartAutoPlay() {
+        this.stopAutoPlay();
+        this.startAutoPlay();
+    }
+}
+
+// 初始化轮播图
+document.addEventListener('DOMContentLoaded', () => {
+    const carouselContainer = document.querySelector('.carousel-container');
+    new Carousel(carouselContainer, carouselData);
+});

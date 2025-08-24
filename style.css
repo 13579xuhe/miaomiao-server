@@ -23,17 +23,18 @@ header {
     margin: 0 auto;
 }
 
-.you-box, .hobby, .achievement {
+.you-box, .hobby, .achievement,.button,.video,.furry-img{
     border-radius: 10px;
     padding: 20px;
     width: 80%;
+    min-width: 250px;
     margin: 20px auto;
     position: relative;
 }
 
 .you-box {
     background-color: #f0f0f0ad;
-    height: 150px;
+    height: 180px;
     margin: 0 auto;
 }
 
@@ -74,17 +75,16 @@ header {
     position: absolute;
     width: 30%;
     height: auto;
-    top: -90px;
+    top: -80px;
     left: 100%;
-    max-width: 120px;
-    min-width: 80px;
+    max-width: 130px;
+    min-width: 100px;
 }
 
-.hobby h3, .achievement h3 {
+.hobby h3, .achievement h3,.button h3 {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-size: 18px;
-    color: #333;
 }
 
 .hobby-item {
@@ -230,5 +230,148 @@ h1 {
         padding: 14px;
         font-size: 16px;
         min-height: 48px;
+    }
+}
+
+.button{
+    background-color: #afffddad;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.button-img {
+    width: 120px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.button-img2{
+    width: 35vw;
+    height: 35vw;
+    border-radius: 10px;
+}
+
+.video {
+    background-color: rgba(175, 236, 255, 0.68);
+    border-radius: 8px;
+    max-width: 80%;
+    height: 60%;
+}
+
+.video1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 80%;
+    height: 30%;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 轮播图幻灯片样式 */
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 导航按钮样式 */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.carousel-btn-prev {
+    left: 20px;
+}
+
+.carousel-btn-next {
+    right: 20px;
+}
+
+/* 指示器样式 */
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.carousel-indicator.active {
+    background: rgba(255, 255, 255, 1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .carousel-container {
+        height: 300px;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        height: 200px;
+    }
+
+    .carousel-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+
+    .carousel-indicators {
+        bottom: 10px;
     }
 }
