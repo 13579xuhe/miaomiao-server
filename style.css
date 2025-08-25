@@ -117,7 +117,7 @@ h4 {
     min-width: 100px;
 }
 
-.avatar2,.container,.button{
+.avatar2,.container，.button-img,.button-img2{
     pointer-events: none;
     user-select: none;
 }

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="页面切换按钮" />
+    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="优化" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +73,7 @@
       <updated>1756051304353</updated>
       <workItem from="1756051306034" duration="10997000" />
       <workItem from="1756116862157" duration="7737000" />
-      <workItem from="1756130019037" duration="6446000" />
+      <workItem from="1756130019037" duration="6861000" />
     </task>
     <task id="LOCAL-00001" summary="增加活动">
       <option name="closed" value="true" />
@@ -163,7 +163,23 @@
       <option name="project" value="LOCAL" />
       <updated>1756136057030</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="优化">
+      <option name="closed" value="true" />
+      <created>1756136706123</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1756136706123</updated>
+    </task>
+    <task id="LOCAL-00013" summary="优化">
+      <option name="closed" value="true" />
+      <created>1756136923621</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1756136923621</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +191,7 @@
     <MESSAGE value="装饰添加" />
     <MESSAGE value="背景音乐添加" />
     <MESSAGE value="页面切换按钮" />
-    <option name="LAST_COMMIT_MESSAGE" value="页面切换按钮" />
+    <MESSAGE value="优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化" />
   </component>
 </project>
