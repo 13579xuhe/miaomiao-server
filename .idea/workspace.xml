@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="页面切换按钮">
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="页面切换按钮" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,7 +73,7 @@
       <updated>1756051304353</updated>
       <workItem from="1756051306034" duration="10997000" />
       <workItem from="1756116862157" duration="7737000" />
-      <workItem from="1756130019037" duration="5818000" />
+      <workItem from="1756130019037" duration="6446000" />
     </task>
     <task id="LOCAL-00001" summary="增加活动">
       <option name="closed" value="true" />
@@ -157,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756135527308</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="页面切换按钮">
+      <option name="closed" value="true" />
+      <created>1756136057030</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1756136057030</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
