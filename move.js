@@ -1,24 +1,57 @@
+// ===== 全局变量和配置 =====
+const CAROUSEL_CONFIG = {
+    autoPlayDelay: 5000,
+    swipeThreshold: 50,
+    resizeDebounceTime: 100
+};
+
+const BREAKPOINTS = {
+    xs: { width: 360, height: 520, items: 2 },
+    sm: { width: 600, items: 3 },
+    md: { width: 900, items: 4 },
+    lg: { items: 5 }
+};
+
 // 存储每个部分的按钮状态
 const sectionStates = {};
 
-// 获取当前设备应显示的最大项目数（优化移动端小尺寸）
+// ===== 工具函数 =====
+// 防抖函数
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// 获取当前设备应显示的最大项目数
 function getMaxVisible() {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    // 超小屏幕设备（如359×519）
-    if (width <= 360 || height <= 520) return 2;
-    // 小屏幕移动设备
-    if (width <= 600) return 3;
-    // 中等屏幕
-    if (width <= 900) return 4;
-    // 大屏幕
-    return 5;
+    if (width <= BREAKPOINTS.xs.width || height <= BREAKPOINTS.xs.height)
+        return BREAKPOINTS.xs.items;
+    if (width <= BREAKPOINTS.sm.width)
+        return BREAKPOINTS.sm.items;
+    if (width <= BREAKPOINTS.md.width)
+        return BREAKPOINTS.md.items;
+
+    return BREAKPOINTS.lg.items;
 }
 
-// 初始化折叠功能
+// ===== 折叠功能模块 =====
 function setupCollapsibleSection(containerId) {
     const container = document.getElementById(containerId);
+    if (!container) {
+        console.warn(`容器元素 #${containerId} 不存在`);
+        return;
+    }
+
     const items = container.querySelectorAll('.hobby-item');
     const maxVisible = getMaxVisible();
 
@@ -40,21 +73,22 @@ function setupCollapsibleSection(containerId) {
     if (!toggleBtn) {
         toggleBtn = document.createElement('button');
         toggleBtn.className = 'toggle-btn';
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.setAttribute('aria-label', '切换显示更多内容');
         container.appendChild(toggleBtn);
     }
 
     // 获取当前状态（默认为折叠）
     const isExpanded = sectionStates[containerId]?.expanded || false;
-    toggleBtn.textContent = isExpanded ? '收起' : '显示更多';
+    toggleBtn.textContent = isExpanded ? '收起' : `显示更多 (${items.length - maxVisible}+)`;
+    toggleBtn.setAttribute('aria-expanded', isExpanded.toString());
 
     // 设置初始显示状态
-    for (let i = 0; i < items.length; i++) {
-        items[i].style.display = (i < maxVisible || isExpanded) ? 'flex' : 'none';
-    }
+    updateItemsVisibility(items, maxVisible, isExpanded);
 
     // 切换显示/隐藏
     function toggleItems() {
-        const nowExpanded = toggleBtn.textContent === '收起';
+        const nowExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
         const currentMaxVisible = getMaxVisible();
 
         for (let i = 0; i < items.length; i++) {
@@ -62,213 +96,291 @@ function setupCollapsibleSection(containerId) {
                 (i < currentMaxVisible ? 'flex' : 'none') : 'flex';
         }
 
-        toggleBtn.textContent = nowExpanded ? '显示更多' : '收起';
+        const newExpandedState = !nowExpanded;
+        toggleBtn.textContent = newExpandedState ? '收起' : `显示更多 (${items.length - currentMaxVisible}+)`;
+        toggleBtn.setAttribute('aria-expanded', newExpandedState.toString());
 
         // 保存状态
         sectionStates[containerId] = {
-            expanded: !nowExpanded
+            expanded: newExpandedState
         };
     }
 
-    // 添加点击事件（电脑端）
-    toggleBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        toggleItems();
-    });
+    // 添加事件监听器
+    function setupEventListeners() {
+        // 添加点击事件（电脑端）
+        toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleItems();
+        });
 
-    // 添加触摸事件支持（移动端）
-    toggleBtn.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-        this.classList.add('active');
-    }, {passive: false});
+        // 添加触摸事件支持（移动端）
+        toggleBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.classList.add('active');
+        }, {passive: false});
 
-    toggleBtn.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        this.classList.remove('active');
-        toggleItems();
-    }, {passive: false});
+        toggleBtn.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            this.classList.remove('active');
+            toggleItems();
+        }, {passive: false});
+
+        // 添加键盘支持
+        toggleBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleItems();
+            }
+        });
+    }
+
+    setupEventListeners();
 }
 
-// 页面加载完成后初始化两个部分
-document.addEventListener('DOMContentLoaded', function() {
+// 更新项目可见性
+function updateItemsVisibility(items, maxVisible, isExpanded) {
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.display = (i < maxVisible || isExpanded) ? 'flex' : 'none';
+
+        // 添加ARIA属性
+        if (i >= maxVisible) {
+            items[i].setAttribute('aria-hidden', isExpanded ? 'false' : 'true');
+        }
+    }
+}
+
+// ===== 轮播图模块 =====
+class Carousel {
+    constructor() {
+        this.slidesContainer = document.querySelector('.carousel-slides');
+        this.slides = document.querySelectorAll('.carousel-slide');
+        this.prevBtn = document.querySelector('.prev-btn');
+        this.nextBtn = document.querySelector('.next-btn');
+        this.indicators = document.querySelectorAll('.indicator');
+        this.progressBar = document.querySelector('.progress-bar');
+
+        if (!this.slidesContainer || this.slides.length === 0) {
+            console.warn('轮播图元素未找到');
+            return;
+        }
+
+        this.currentIndex = 0;
+        this.intervalId = null;
+        this.startX = 0;
+        this.endX = 0;
+        this.isDragging = false;
+        this.slideCount = this.slides.length;
+        this.autoPlayDelay = CAROUSEL_CONFIG.autoPlayDelay;
+
+        this.init();
+    }
+
+    init() {
+        this.updateSlidePosition();
+        this.startAutoPlay();
+        this.addEventListeners();
+        this.addTouchEvents();
+    }
+
+    updateSlidePosition() {
+        this.slidesContainer.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+
+        // 更新指示器
+        this.indicators.forEach((indicator, index) => {
+            if (index === this.currentIndex) {
+                indicator.classList.add('active');
+                indicator.setAttribute('aria-current', 'true');
+            } else {
+                indicator.classList.remove('active');
+                indicator.setAttribute('aria-current', 'false');
+            }
+        });
+
+        // 更新幻灯片ARIA属性
+        this.slides.forEach((slide, index) => {
+            slide.setAttribute('aria-hidden', index !== this.currentIndex ? 'true' : 'false');
+        });
+
+        this.resetProgressBar();
+    }
+
+    nextSlide() {
+        this.currentIndex = (this.currentIndex + 1) % this.slideCount;
+        this.updateSlidePosition();
+    }
+
+    prevSlide() {
+        this.currentIndex = (this.currentIndex - 1 + this.slideCount) % this.slideCount;
+        this.updateSlidePosition();
+    }
+
+    goToSlide(index) {
+        if (index >= 0 && index < this.slideCount) {
+            this.currentIndex = index;
+            this.updateSlidePosition();
+        }
+    }
+
+    startAutoPlay() {
+        this.stopAutoPlay();
+
+        this.progressBar.style.width = '100%';
+        this.progressBar.style.transition = `width ${this.autoPlayDelay}ms linear`;
+
+        this.intervalId = setInterval(() => this.nextSlide(), this.autoPlayDelay);
+    }
+
+    stopAutoPlay() {
+        clearInterval(this.intervalId);
+        this.progressBar.style.transition = 'none';
+        this.progressBar.style.width = '0%';
+    }
+
+    resetProgressBar() {
+        this.progressBar.style.transition = 'none';
+        this.progressBar.style.width = '0%';
+
+        // 强制重绘
+        void this.progressBar.offsetWidth;
+
+        this.progressBar.style.transition = `width ${this.autoPlayDelay}ms linear`;
+        this.progressBar.style.width = '100%';
+    }
+
+    addTouchEvents() {
+        this.slidesContainer.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: true });
+        this.slidesContainer.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: true });
+        this.slidesContainer.addEventListener('touchend', this.handleTouchEnd.bind(this));
+
+        // 添加鼠标拖动支持（桌面端）
+        this.slidesContainer.addEventListener('mousedown', this.handleMouseDown.bind(this));
+        this.slidesContainer.addEventListener('mousemove', this.handleMouseMove.bind(this));
+        this.slidesContainer.addEventListener('mouseup', this.handleMouseUp.bind(this));
+        this.slidesContainer.addEventListener('mouseleave', this.handleMouseUp.bind(this));
+    }
+
+    handleTouchStart(event) {
+        this.startX = event.touches[0].clientX;
+        this.stopAutoPlay();
+    }
+
+    handleTouchMove(event) {
+        if (!this.isDragging) {
+            this.isDragging = true;
+        }
+        this.endX = event.touches[0].clientX;
+    }
+
+    handleTouchEnd() {
+        if (!this.isDragging) return;
+
+        if (this.startX - this.endX > CAROUSEL_CONFIG.swipeThreshold) {
+            this.nextSlide();
+        } else if (this.endX - this.startX > CAROUSEL_CONFIG.swipeThreshold) {
+            this.prevSlide();
+        }
+
+        this.isDragging = false;
+        this.startAutoPlay();
+    }
+
+    handleMouseDown(event) {
+        this.startX = event.clientX;
+        this.isDragging = true;
+        this.stopAutoPlay();
+        event.preventDefault();
+    }
+
+    handleMouseMove(event) {
+        if (!this.isDragging) return;
+        this.endX = event.clientX;
+    }
+
+    handleMouseUp() {
+        if (!this.isDragging) return;
+
+        if (this.startX - this.endX > CAROUSEL_CONFIG.swipeThreshold) {
+            this.nextSlide();
+        } else if (this.endX - this.startX > CAROUSEL_CONFIG.swipeThreshold) {
+            this.prevSlide();
+        }
+
+        this.isDragging = false;
+        this.startAutoPlay();
+    }
+
+    addEventListeners() {
+        // 按钮点击事件
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', () => {
+                this.stopAutoPlay();
+                this.nextSlide();
+                this.startAutoPlay();
+            });
+        }
+
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', () => {
+                this.stopAutoPlay();
+                this.prevSlide();
+                this.startAutoPlay();
+            });
+        }
+
+        // 指示器点击事件
+        this.indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                this.stopAutoPlay();
+                this.goToSlide(index);
+                this.startAutoPlay();
+            });
+        });
+
+        // 鼠标悬停时暂停自动播放（仅桌面端）
+        if (window.matchMedia("(min-width: 769px)").matches) {
+            this.slidesContainer.addEventListener('mouseenter', () => this.stopAutoPlay());
+            this.slidesContainer.addEventListener('mouseleave', () => this.startAutoPlay());
+        }
+
+        // 触摸事件暂停自动播放
+        this.slidesContainer.addEventListener('touchstart', () => this.stopAutoPlay(), { passive: true });
+        this.slidesContainer.addEventListener('touchend', () => this.startAutoPlay(), { passive: true });
+
+        // 键盘导航支持
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                this.stopAutoPlay();
+                this.prevSlide();
+                this.startAutoPlay();
+            } else if (e.key === 'ArrowRight') {
+                this.stopAutoPlay();
+                this.nextSlide();
+                this.startAutoPlay();
+            }
+        });
+    }
+}
+
+// ===== 页面初始化 =====
+function initPage() {
+    // 初始化折叠部分
     setupCollapsibleSection('hobby');
     setupCollapsibleSection('achievement');
 
-    // 防抖函数，避免频繁重绘
-    function debounce(func, wait) {
-        let timeout;
-        return function() {
-            clearTimeout(timeout);
-            timeout = setTimeout(func, wait);
-        };
-    }
+    // 初始化轮播图
+    new Carousel();
 
     // 窗口大小改变时重新计算显示状态
     window.addEventListener('resize', debounce(function() {
         setupCollapsibleSection('hobby');
         setupCollapsibleSection('achievement');
-    }, 100));
-});
-
-const carouselData = [
-    {
-        image: "./images/1.jpg",
-    },
-    {
-        image: "./images/2.jpg",
-    },
-    {
-        image: "./images/3.jpg",
-    },
-    {
-        image: "./images/4.jpg",
-    }
-];
-
-// 轮播图类
-class Carousel {
-    constructor(container, data) {
-        this.container = container;
-        this.data = data;
-        this.slides = container.querySelector('.carousel-slides');
-        this.prevBtn = container.querySelector('.carousel-btn-prev');
-        this.nextBtn = container.querySelector('.carousel-btn-next');
-        this.indicatorsContainer = container.querySelector('.carousel-indicators');
-        this.currentIndex = 0;
-        this.intervalId = null;
-        this.autoPlayDelay = 3000; // 3秒自动播放
-
-        this.init();
-    }
-
-    // 初始化轮播图
-    init() {
-        this.createSlides();
-        this.createIndicators();
-        this.setActiveSlide();
-        this.addEventListeners();
-        this.startAutoPlay();
-    }
-
-    // 创建幻灯片
-    createSlides() {
-        this.slides.innerHTML = '';
-
-        this.data.forEach(item => {
-            const slide = document.createElement('div');
-            slide.className = 'carousel-slide';
-            slide.innerHTML = `
-                        <img src="${item.image}" alt="${item.title}">
-                    `;
-            this.slides.appendChild(slide);
-        });
-    }
-
-    // 创建指示器
-    createIndicators() {
-        this.indicatorsContainer.innerHTML = '';
-
-        this.data.forEach((_, index) => {
-            const indicator = document.createElement('div');
-            indicator.className = 'carousel-indicator';
-            indicator.dataset.index = index;
-            this.indicatorsContainer.appendChild(indicator);
-        });
-    }
-
-    // 设置当前活动幻灯片
-    setActiveSlide() {
-        // 移除所有活动状态
-        const slides = this.slides.querySelectorAll('.carousel-slide');
-        const indicators = this.indicatorsContainer.querySelectorAll('.carousel-indicator');
-
-        slides.forEach(slide => slide.classList.remove('active'));
-        indicators.forEach(indicator => indicator.classList.remove('active'));
-
-        // 设置当前活动状态
-        slides[this.currentIndex].classList.add('active');
-        indicators[this.currentIndex].classList.add('active');
-
-        // 移动幻灯片位置
-        this.slides.style.transform = `translateX(-${this.currentIndex * 100}%)`;
-    }
-
-    // 添加事件监听
-    addEventListeners() {
-        // 上一张按钮
-        this.prevBtn.addEventListener('click', () => {
-            this.prevSlide();
-            this.restartAutoPlay();
-        });
-
-        // 下一张按钮
-        this.nextBtn.addEventListener('click', () => {
-            this.nextSlide();
-            this.restartAutoPlay();
-        });
-
-        // 指示器点击
-        this.indicatorsContainer.querySelectorAll('.carousel-indicator').forEach(indicator => {
-            indicator.addEventListener('click', () => {
-                this.goToSlide(parseInt(indicator.dataset.index));
-                this.restartAutoPlay();
-            });
-        });
-
-        // 鼠标悬停时暂停自动播放
-        this.container.addEventListener('mouseenter', () => {
-            this.stopAutoPlay();
-        });
-
-        // 鼠标离开时恢复自动播放
-        this.container.addEventListener('mouseleave', () => {
-            this.startAutoPlay();
-        });
-    }
-
-    // 切换到上一张幻灯片
-    prevSlide() {
-        this.currentIndex = this.currentIndex === 0 ? this.data.length - 1 : this.currentIndex - 1;
-        this.setActiveSlide();
-    }
-
-    // 切换到下一张幻灯片
-    nextSlide() {
-        this.currentIndex = this.currentIndex === this.data.length - 1 ? 0 : this.currentIndex + 1;
-        this.setActiveSlide();
-    }
-
-    // 跳转到指定幻灯片
-    goToSlide(index) {
-        this.currentIndex = index;
-        this.setActiveSlide();
-    }
-
-    // 开始自动播放
-    startAutoPlay() {
-        this.stopAutoPlay();
-        this.intervalId = setInterval(() => {
-            this.nextSlide();
-        }, this.autoPlayDelay);
-    }
-
-    // 停止自动播放
-    stopAutoPlay() {
-        if (this.intervalId) {
-            clearInterval(this.intervalId);
-            this.intervalId = null;
-        }
-    }
-
-    // 重新开始自动播放
-    restartAutoPlay() {
-        this.stopAutoPlay();
-        this.startAutoPlay();
-    }
+    }, CAROUSEL_CONFIG.resizeDebounceTime));
 }
 
-// 初始化轮播图
-document.addEventListener('DOMContentLoaded', () => {
-    const carouselContainer = document.querySelector('.carousel-container');
-    new Carousel(carouselContainer, carouselData);
-});
+// ===== 页面加载完成后初始化 =====
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPage);
+} else {
+    initPage();
+}

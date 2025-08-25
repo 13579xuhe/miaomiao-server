@@ -1,77 +1,113 @@
+/* ===== 变量定义 ===== */
+:root {
+    --primary-color: #15b7ff;
+    --secondary-color: rgba(255, 0, 136, 0.44);
+    --text-color: #333;
+    --box-bg-1: #f0f0f0ad;
+    --box-bg-2: #afffddad;
+    --box-bg-3: rgba(219, 175, 255, 0.68);
+    --box-bg-4: rgba(175, 236, 255, 0.68);
+    --border-radius: 10px;
+    --box-padding: 20px;
+    --transition-speed: 0.3s;
+    --font-stack: 'MyFont', Arial, sans-serif;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== 基础样式 ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'MyFont', Arial, sans-serif;
-    font-weight: normal;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+    font-family: var(--font-stack);
+    font-weight: normal;
     line-height: 1.5;
-    background-color: #15b7ff;
-    height: 100%;
+    color: var(--text-color);
+    background-color: var(--primary-color);
     background-image: url("./images/background-image.svg");
     background-repeat: repeat;
     background-size: cover;
+    min-height: 100vh;
 }
 
+/* ===== 排版 ===== */
 header {
-    font-size: 3vw;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
     text-align: center;
     margin: 0 auto;
+    padding: 1rem;
 }
 
-.you-box, .hobby, .achievement,.button,.video,.furry-img{
-    border-radius: 10px;
-    padding: 20px;
+h1 {
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
+    margin: 15px 0;
+}
+
+h3 {
+    font-size: clamp(1rem, 1.8vw, 1.5rem);
+    margin-bottom: 0.5rem;
+}
+
+h4 {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* ===== 通用容器样式 ===== */
+.container, .you-box, .hobby, .achievement, .button, .video, .furry-img {
+    border-radius: var(--border-radius);
+    padding: var(--box-padding);
     width: 80%;
     min-width: 250px;
     margin: 20px auto;
     position: relative;
+    box-shadow: var(--box-shadow);
+}
+
+.container {
+    background-color: var(--secondary-color);
 }
 
 .you-box {
-    background-color: #f0f0f0ad;
-    height: 180px;
-    margin: 0 auto;
+    background-color: var(--box-bg-1);
+    min-height: 180px;
+    display: flex;
+    align-items: center;
 }
 
-.hobby {
-    background-color: #afffddad;
+.hobby, .button {
+    background-color: var(--box-bg-2);
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 .achievement {
-    background-color: rgba(219, 175, 255, 0.68);
+    background-color: var(--box-bg-3);
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
-.name {
-    width: 200px;
-    height: 100px;
-    font-size: 30px;
-    margin-top: -15px;
+.video {
+    background-color: var(--box-bg-4);
+    max-width: 80%;
+    aspect-ratio: 16/9;
 }
 
+/* ===== 头像样式 ===== */
 .avatar {
     position: relative;
     width: 65%;
-    height: 100vh;
 }
 
 .avatar2 {
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     pointer-events: none;
     user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     position: absolute;
     width: 30%;
     height: auto;
@@ -81,32 +117,34 @@ header {
     min-width: 100px;
 }
 
-.hobby h3, .achievement h3,.button h3 {
-    width: 100%;
-    margin-bottom: 5px;
-    font-size: 18px;
+.name {
+    width: 200px;
+    font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
+/* ===== 兴趣项样式 ===== */
 .hobby-item {
     background-color: rgba(240, 240, 240, 0.55);
-    padding: 11px 20px;
+    padding: 0.7rem 1.25rem;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 0.875rem;
     flex-shrink: 0;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed) ease;
     display: flex;
+    align-items: center;
 }
 
+/* ===== 按钮样式 ===== */
 .toggle-btn {
     color: white;
     border: none;
-    padding: 12px 24px;
+    padding: 0.75rem 1.5rem;
     border-radius: 25px;
     cursor: pointer;
-    font-size: 15px;
-    margin-top: 15px;
+    font-size: 0.9375rem;
+    margin-top: 0.9375rem;
     width: 100%;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all var(--transition-speed) cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -136,25 +174,136 @@ header {
     z-index: -1;
 }
 
-h4 {
-    font-size: 60%;
-    margin: 5px 0;
+/* ===== 图片样式 ===== */
+.button-img {
+    width: 120px;
+    height: 50px;
+    border-radius: var(--border-radius);
+    object-fit: cover;
 }
 
-h1 {
-    margin: 15px 0;
-    font-size: 25px;
+.button-img2 {
+    width: 35vw;
+    height: 35vw;
+    border-radius: var(--border-radius);
+    object-fit: cover;
 }
 
-@font-face {
-    font-family: 'MyFont';
-    src: url('myfont.ttf') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+.video1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
 }
 
-/* 交互效果 */
+/* ===== 轮播组件 ===== */
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 450px;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    width: 100%;
+    padding: 1.5625rem;
+    text-align: center;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-container:hover .carousel-controls {
+    opacity: 1;
+}
+
+.carousel-controls button {
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 1.5625rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    z-index: 10;
+}
+
+.carousel-indicators .indicator {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 10;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+/* ===== 交互效果 ===== */
 @media (hover: hover) {
     .hobby-item:hover {
         transform: scale(1.05);
@@ -162,16 +311,17 @@ h1 {
         background-color: rgba(240, 240, 240, 0.8);
     }
 
-    .hobby .toggle-btn:hover {
-        background-color: #45a049;
+    .toggle-btn:hover {
         transform: translateY(-3px);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
+    .hobby .toggle-btn:hover {
+        background-color: #45a049;
+    }
+
     .achievement .toggle-btn:hover {
         background-color: rgba(169, 115, 205, 0.9);
-        transform: translateY(-3px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
     .toggle-btn:hover::after {
@@ -181,14 +331,6 @@ h1 {
 
 .hobby-item:active, .toggle-btn:active {
     transform: scale(0.98);
-}
-
-.hobby-item:active {
-    background-color: rgba(240, 240, 240, 0.8);
-}
-
-.toggle-btn:active {
-    transform: scale(0.96);
 }
 
 .toggle-btn:active::after {
@@ -214,164 +356,126 @@ h1 {
     }
 }
 
-/* 响应式设计 */
-@media (max-width: 600px) {
-    .hobby, .achievement {
+/* ===== 字体定义 ===== */
+@font-face {
+    font-family: 'MyFont';
+    src: url('myfont.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ===== 响应式设计 ===== */
+@media (max-width: 1024px) {
+    .container, .you-box, .hobby, .achievement, .button, .video, .furry-img {
         width: 80%;
-        padding: 15px;
-    }
-
-    .hobby-item {
-        padding: 10px 15px;
-        font-size: 13px;
-    }
-
-    .toggle-btn {
-        padding: 14px;
-        font-size: 16px;
-        min-height: 48px;
     }
 }
 
-.button{
-    background-color: #afffddad;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.button-img {
-    width: 120px;
-    height: 50px;
-    border-radius: 10px;
-}
-
-.button-img2{
-    width: 35vw;
-    height: 35vw;
-    border-radius: 10px;
-}
-
-.video {
-    background-color: rgba(175, 236, 255, 0.68);
-    border-radius: 8px;
-    max-width: 80%;
-    height: 60%;
-}
-
-.video1 {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.carousel-container {
-    position: relative;
-    max-width: 80%;
-    height: 30%;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* 轮播图幻灯片样式 */
-.carousel-slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 100%;
-}
-
-.carousel-slide {
-    min-width: 100%;
-    height: 100%;
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* 导航按钮样式 */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.7);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    color: #333;
-    cursor: pointer;
-    transition: background 0.3s;
-    z-index: 10;
-}
-
-.carousel-btn:hover {
-    background: rgba(255, 255, 255, 0.9);
-}
-
-.carousel-btn-prev {
-    left: 20px;
-}
-
-.carousel-btn-next {
-    right: 20px;
-}
-
-/* 指示器样式 */
-.carousel-indicators {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 10;
-}
-
-.carousel-indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.carousel-indicator.active {
-    background: rgba(255, 255, 255, 1);
-}
-
-/* 响应式设计 */
 @media (max-width: 768px) {
-    .carousel-container {
-        height: 300px;
+    .carousel-container,
+    .carousel-slides {
+        height: 400px;
     }
 
-    .carousel-btn {
+    .carousel-controls button {
         width: 40px;
         height: 40px;
-        font-size: 1.2rem;
+        margin: 0 15px;
+    }
+
+    .slide-content {
+        padding: 20px;
+    }
+
+    .slide-content h3 {
+        font-size: 1.25rem;
+    }
+
+    .avatar2 {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 0 auto 1rem;
+        width: 100px;
+    }
+
+    .you-box {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
 @media (max-width: 480px) {
-    .carousel-container {
-        height: 200px;
+    body {
+        background-size: auto;
     }
 
-    .carousel-btn {
-        width: 30px;
-        height: 30px;
+    .container, .you-box, .hobby, .achievement, .button, .video, .furry-img {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .carousel-container,
+    .carousel-slides {
+        height: 350px;
+    }
+
+    .carousel-controls button {
+        width: 36px;
+        height: 36px;
+        margin: 0 10px;
         font-size: 1rem;
     }
 
-    .carousel-indicators {
-        bottom: 10px;
+    .slide-content {
+        padding: 15px;
     }
+
+    .slide-content h3 {
+        font-size: 1.125rem;
+    }
+
+    .slide-content p {
+        font-size: 0.875rem;
+    }
+
+    .carousel-indicators .indicator {
+        width: 12px;
+        height: 12px;
+    }
+
+    .hobby-item {
+        padding: 0.5rem 1rem;
+        font-size: 0.8125rem;
+    }
+
+    .toggle-btn {
+        padding: 0.875rem;
+        font-size: 0.875rem;
+        min-height: 48px;
+    }
+}
+
+/* ===== 辅助类 ===== */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
