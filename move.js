@@ -6,10 +6,10 @@ const CAROUSEL_CONFIG = {
 };
 
 const BREAKPOINTS = {
-    xs: { width: 360, height: 520, items: 2 },
-    sm: { width: 600, items: 3 },
-    md: { width: 900, items: 4 },
-    lg: { items: 5 }
+    xs: {width: 360, height: 520, items: 2},
+    sm: {width: 600, items: 3},
+    md: {width: 900, items: 4},
+    lg: {items: 5}
 };
 
 // 存储每个部分的按钮状态
@@ -109,25 +109,25 @@ function setupCollapsibleSection(containerId) {
     // 添加事件监听器
     function setupEventListeners() {
         // 添加点击事件（电脑端）
-        toggleBtn.addEventListener('click', function(e) {
+        toggleBtn.addEventListener('click', function (e) {
             e.preventDefault();
             toggleItems();
         });
 
         // 添加触摸事件支持（移动端）
-        toggleBtn.addEventListener('touchstart', function(e) {
+        toggleBtn.addEventListener('touchstart', function (e) {
             e.preventDefault();
             this.classList.add('active');
         }, {passive: false});
 
-        toggleBtn.addEventListener('touchend', function(e) {
+        toggleBtn.addEventListener('touchend', function (e) {
             e.preventDefault();
             this.classList.remove('active');
             toggleItems();
         }, {passive: false});
 
         // 添加键盘支持
-        toggleBtn.addEventListener('keydown', function(e) {
+        toggleBtn.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 toggleItems();
@@ -249,8 +249,8 @@ class Carousel {
     }
 
     addTouchEvents() {
-        this.slidesContainer.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: true });
-        this.slidesContainer.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: true });
+        this.slidesContainer.addEventListener('touchstart', this.handleTouchStart.bind(this), {passive: true});
+        this.slidesContainer.addEventListener('touchmove', this.handleTouchMove.bind(this), {passive: true});
         this.slidesContainer.addEventListener('touchend', this.handleTouchEnd.bind(this));
 
         // 添加鼠标拖动支持（桌面端）
@@ -344,8 +344,8 @@ class Carousel {
         }
 
         // 触摸事件暂停自动播放
-        this.slidesContainer.addEventListener('touchstart', () => this.stopAutoPlay(), { passive: true });
-        this.slidesContainer.addEventListener('touchend', () => this.startAutoPlay(), { passive: true });
+        this.slidesContainer.addEventListener('touchstart', () => this.stopAutoPlay(), {passive: true});
+        this.slidesContainer.addEventListener('touchend', () => this.startAutoPlay(), {passive: true});
 
         // 键盘导航支持
         document.addEventListener('keydown', (e) => {
@@ -372,7 +372,7 @@ function initPage() {
     new Carousel();
 
     // 窗口大小改变时重新计算显示状态
-    window.addEventListener('resize', debounce(function() {
+    window.addEventListener('resize', debounce(function () {
         setupCollapsibleSection('hobby');
         setupCollapsibleSection('achievement');
     }, CAROUSEL_CONFIG.resizeDebounceTime));
@@ -384,3 +384,68 @@ if (document.readyState === 'loading') {
 } else {
     initPage();
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const musicPlayer = document.getElementById('bg-music');
+    const record = document.getElementById('record');
+    const playPauseBtn = document.getElementById('play-pause');
+    const playIcon = document.querySelector('.play-icon');
+    const volumeSlider = document.getElementById('volume-slider');
+
+    // 初始化设置
+    musicPlayer.volume = localStorage.getItem('musicVolume') || 0.3;
+    volumeSlider.value = musicPlayer.volume;
+
+    // 播放/暂停功能
+    playPauseBtn.addEventListener('click', function() {
+        if (musicPlayer.paused) {
+            musicPlayer.play();
+            record.style.animationPlayState = 'running';
+            playIcon.textContent = '❚❚';
+        } else {
+            musicPlayer.pause();
+            record.style.animationPlayState = 'paused';
+            playIcon.textContent = '▶';
+        }
+    });
+
+    // 音量控制
+    volumeSlider.addEventListener('input', function() {
+        musicPlayer.volume = this.value;
+        localStorage.setItem('musicVolume', this.value);
+    });
+
+    // 尝试自动播放（可能被浏览器阻止）
+    const playPromise = musicPlayer.play();
+    if (playPromise !== undefined) {
+        playPromise.then(_ => {
+            record.style.animationPlayState = 'running';
+            playIcon.textContent = '❚❚';
+        }).catch(error => {
+            console.log('自动播放被阻止:', error);
+        });
+    }
+
+    // 鼠标悬停时显示控制面板
+    record.addEventListener('mouseenter', function() {
+        document.querySelector('.record-controls').style.opacity = '1';
+    });
+
+    // 鼠标离开时隐藏控制面板（延迟）
+    let hideTimeout;
+    record.addEventListener('mouseleave', function() {
+        hideTimeout = setTimeout(() => {
+            document.querySelector('.record-controls').style.opacity = '0';
+        }, 1000);
+    });
+
+    // 防止鼠标移动到控制面板时隐藏
+    document.querySelector('.record-controls').addEventListener('mouseenter', function() {
+        clearTimeout(hideTimeout);
+        this.style.opacity = '1';
+    });
+
+    document.querySelector('.record-controls').addEventListener('mouseleave', function() {
+        this.style.opacity = '0';
+    });
+});
