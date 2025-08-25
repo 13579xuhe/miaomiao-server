@@ -108,8 +108,6 @@ h4 {
 
 .avatar2 {
     border-radius: var(--border-radius);
-    pointer-events: none;
-    user-select: none;
     position: absolute;
     width: 30%;
     height: auto;
@@ -117,6 +115,11 @@ h4 {
     left: 100%;
     max-width: 130px;
     min-width: 100px;
+}
+
+.avatar2,.container,.button{
+    pointer-events: none;
+    user-select: none;
 }
 
 .name {
