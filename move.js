@@ -449,3 +449,80 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.opacity = '0';
     });
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mainBtn = document.getElementById('mainBtn');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const closeBtn = document.getElementById('closeBtn');
+    const subBtns = document.querySelectorAll('.sub-btn');
+
+    // 获取当前页面路径
+// 根据当前页面更新按钮显示状态
+    function updateButtonVisibility() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+        subBtns.forEach(btn => {
+            const btnHref = btn.getAttribute('href');
+            if (btnHref) {
+                const btnPage = btnHref.split('/').pop();
+                // 如果按钮链接的页面与当前页面相同，则隐藏该按钮
+                if (btnPage === currentPage) {
+                    btn.style.display = 'none';
+                } else {
+                    btn.style.display = 'flex';
+                }
+            }
+        });
+    }
+
+    // 初始化按钮可见性
+    updateButtonVisibility();
+
+    // 监听hash变化（模拟页面切换）
+    window.addEventListener('hashchange', updateButtonVisibility);
+
+    // 打开模态窗口
+    mainBtn.addEventListener('click', function() {
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        updateButtonVisibility(); // 每次打开时更新按钮状态
+    });
+
+    // 关闭模态窗口
+    closeBtn.addEventListener('click', function() {
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    // 点击模态窗口背景也可关闭
+    modalOverlay.addEventListener('click', function(e) {
+        if (e.target === modalOverlay) {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // 为子按钮添加点击效果
+    subBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+
+            // 添加点击反馈
+            this.style.transform = 'translateY(-3px) scale(0.95)';
+
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 200);
+        });
+    });
+
+    // ESC键关闭模态窗口
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});

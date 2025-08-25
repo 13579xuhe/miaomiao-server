@@ -14,10 +14,16 @@
     <h1>🐾妙妙墨璃的小窝🐾</h1>
 </header>
 
-<div class="floating-furry">
-    <div class="furry-1">☁️</div>
-    <div class="furry-2">❤️</div>
-    <div class="furry-3">🐾</div>
+<!-- 添加到<body>标签内 -->
+<div class="furry-decorations">
+    <!-- 爪印元素 -->
+    <div class="furry-paw furry-paw1">🐾</div>
+    <div class="furry-paw furry-paw2">🐾</div>
+    <div class="furry-paw furry-paw3">🐾</div>
+
+    <!-- 毛球元素 -->
+    <div class="furry-fluff furry-fluff1"></div>
+    <div class="furry-fluff furry-fluff2"></div>
 </div>
 
 <!-- 添加到<body>标签内 -->
@@ -153,6 +159,30 @@
     </a>
     <img src="./images/WX.jpg" alt="微信" class="button-img2">
     <img src="./images/QQ.jpg" alt="QQ" class="button-img2">
+</div>
+
+<div class="main-btn" id="mainBtn">
+    <i class="fas fa-plus">切换至其他兽兽</i>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">请选择兽兽</h2>
+            <div class="close-btn" id="closeBtn">
+                <i class="fas fa-times">X</i>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="buttons-grid">
+                <a href="./index.html" class="sub-btn" target="_blank">
+                    <i class="fas fa-home"><img src="./images/avatar.jpg" class="avatar3" alt="妙妙"></i>
+                    <span>妙妙</span>
+                </a>
+            </div>
+            <h4 class="warn">已展示全部兽兽</h4>
+        </div>
+    </div>
 </div>
 </body>
 </html>

@@ -41,7 +41,6 @@ header {
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     text-align: center;
     margin: 0 auto;
-    padding: 1rem;
 }
 
 h1 {
@@ -159,7 +158,7 @@ h4 {
 }
 
 .achievement .toggle-btn {
-    background-color: rgba(189, 135, 225, 0.9);
+    background-color: rgba(153, 0, 255, 0.9);
 }
 
 .toggle-btn::after {
@@ -483,44 +482,115 @@ h4 {
     align-items: center;
 }
 
-/* 悬浮福瑞元素样式 */
-.floating-furry div {
-    position: fixed;
-    font-size: 2rem;
-    opacity: 0.8;
-    z-index: -1;
-    animation: float 15s infinite linear;
-}
-
-.furry-1 {
-    top: 10%;
-    left: 5%;
-}
-
-.furry-2 {
-    top: 70%;
-    left: 80%;
-    animation-delay: 5s;
-}
-
-.furry-3 {
-    top: 30%;
-    left: 90%;
-    animation-delay: 10s;
-}
-
-@keyframes float {
-    0% {
+/* === 大幅浮动动画 === */
+@keyframes big-float {
+    0%, 100% {
         transform: translateY(0) rotate(0deg);
     }
-    50% {
-        transform: translateY(-100px) rotate(180deg);
+    25% {
+        transform: translateY(-30px) rotate(5deg);
     }
-    100% {
-        transform: translateY(0) rotate(360deg);
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(30px) rotate(-5deg);
     }
 }
 
+@keyframes big-float-reverse {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(30px) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-30px) rotate(5deg);
+    }
+}
+
+/* === 大幅浮动爪印 === */
+.furry-paw {
+    position: fixed;
+    font-size: 3rem; /* 增大尺寸 */
+    opacity: 0.8;
+    z-index: -1;
+    animation: big-float 8s ease-in-out infinite;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.2));
+}
+
+.furry-paw1 {
+    top: 15%;
+    left: 5%;
+    animation-delay: 0s;
+    animation-name: big-float-reverse;
+}
+
+.furry-paw2 {
+    top: 65%;
+    left: 80%;
+    animation-delay: 1s;
+    font-size: 4rem; /* 更大尺寸 */
+}
+
+.furry-paw3 {
+    top: 30%;
+    left: 85%;
+    animation-delay: 2s;
+    font-size: 2.5rem;
+}
+
+/* === 浮动毛球 === */
+.furry-fluff {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background: rgba(238, 255, 0, 0.74);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.7;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.2));
+    animation: fluff-float 6s ease-in-out infinite;
+}
+
+.furry-fluff1 {
+    top: 80%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.furry-fluff2 {
+    top: 20%;
+    left: 90%;
+    animation-delay: 3s;
+}
+
+@keyframes fluff-float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    25% { transform: translateY(-40px) scale(1.2); }
+    50% { transform: translateY(0) scale(1); }
+    75% { transform: translateY(40px) scale(0.8); }
+}
+
+/* === 响应式调整 === */
+@media (max-width: 768px) {
+    .furry-paw {
+        font-size: 2rem;
+    }
+
+    .furry-paw2 {
+        font-size: 3rem;
+    }
+
+    .furry-tail {
+        width: 80px;
+        right: -20px;
+    }
+}
 /* 音乐播放器样式 */
 .music-player {
     position: fixed;
@@ -695,26 +765,190 @@ h4 {
 }
 
 /* 响应式调整 */
-@media (max-width: 768px) {
-    .music-player {
-        top: 10px;
-        right: 10px;
-    }
+.subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-    .record {
-        width: 40px;
-        height: 40px;
-    }
+.main-btn {
+    width: 80%;
+    height: 80px;
+    background: linear-gradient(45deg, #9a4008, #ff6200);
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255, 0, 51, 0.5);
+    margin: 30px auto;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
 
-    .volume-slider {
-        width: 50px;
-    }
+.main-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(255, 0, 51, 0.7);
+}
 
-    /* 移动设备上减少动画效果 */
-    .record {
-        animation: spin 5s linear infinite paused;
-    }
-    .record-btn {
-        animation: none;
-    }
+.main-btn-text {
+    color: white;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* 模态窗口样式 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.sub-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px;
+    background: rgba(0, 129, 255, 0.43);
+    border-radius: 12px;
+    text-decoration: none;
+    color: #444;
+    transition: all 0.2s ease;
+    border: 1px solid #eee;
+}
+
+.sub-btn:hover {
+    background: #e9ecef;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.sub-btn i {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+.sub-btn span {
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.instructions {
+    margin-top: 40px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.avatar3{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.no-furry-message {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 1.2rem;
+}
+
+.warn{
+    text-align: center;
 }
