@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="优化">
+    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="禁用右键菜单">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/move.js" beforeDir="false" afterPath="$PROJECT_DIR$/move.js" afterDir="false" />
@@ -79,7 +79,7 @@
       <workItem from="1756051306034" duration="10997000" />
       <workItem from="1756116862157" duration="7737000" />
       <workItem from="1756130019037" duration="7474000" />
-      <workItem from="1756180392291" duration="2823000" />
+      <workItem from="1756180392291" duration="3431000" />
     </task>
     <task id="LOCAL-00001" summary="增加活动">
       <option name="closed" value="true" />
@@ -193,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756137223467</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="禁用右键菜单">
+      <option name="closed" value="true" />
+      <created>1756183421099</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1756183421118</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +214,7 @@
     <MESSAGE value="背景音乐添加" />
     <MESSAGE value="页面切换按钮" />
     <MESSAGE value="优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化" />
+    <MESSAGE value="禁用右键菜单" />
+    <option name="LAST_COMMIT_MESSAGE" value="禁用右键菜单" />
   </component>
 </project>

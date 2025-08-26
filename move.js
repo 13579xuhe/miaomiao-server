@@ -650,3 +650,10 @@ document.addEventListener('keydown', function(e) {
         document.getElementById('customMenu').style.display = 'none';
     }
 });
+
+function refreshPage() {
+    showNotification('正在刷新页面...');
+    setTimeout(() => {
+        window.location.reload();
+    }, 500);
+}
