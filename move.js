@@ -526,3 +526,127 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// 禁用右键菜单
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+
+    // 显示自定义菜单
+    const menu = document.getElementById('customMenu');
+    menu.style.display = 'block';
+
+    // 获取视口尺寸和滚动位置
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const scrollX = window.scrollX || window.pageXOffset;
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    // 获取菜单尺寸
+    const menuWidth = menu.offsetWidth;
+    const menuHeight = menu.offsetHeight;
+
+    // 计算鼠标在视口中的位置（考虑滚动）
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+
+    // 计算菜单位置，确保不会超出视口
+    let menuX = mouseX;
+    let menuY = mouseY;
+
+    // 水平方向调整：如果右边超出，显示在左边
+    if (menuX + menuWidth > viewportWidth) {
+        menuX = viewportWidth - menuWidth - 5;
+    }
+
+    // 垂直方向调整：如果底部超出，显示在上边
+    if (menuY + menuHeight > viewportHeight) {
+        menuY = viewportHeight - menuHeight - 5;
+    }
+
+    // 确保位置不小于0
+    menuX = Math.max(5, menuX);
+    menuY = Math.max(5, menuY);
+
+    // 设置菜单位置（相对于视口）
+    menu.style.left = menuX + 'px';
+    menu.style.top = menuY + 'px';
+    menu.style.position = 'fixed'; // 使用fixed定位
+
+    // 显示鼠标位置（调试用）
+    const mousePos = document.getElementById('mousePosition');
+    mousePos.textContent = `视口X: ${mouseX}, 视口Y: ${mouseY}\n页面X: ${e.pageX}, 页面Y: ${e.pageY}\n滚动X: ${scrollX}, 滚动Y: ${scrollY}`;
+    mousePos.style.display = 'block';
+
+    setTimeout(() => {
+        mousePos.style.display = 'none';
+    }, 3000);
+});
+
+// 点击其他地方隐藏菜单
+document.addEventListener('click', function(e) {
+    const menu = document.getElementById('customMenu');
+    // 检查点击的不是菜单本身
+    if (!menu.contains(e.target) && menu.style.display === 'block') {
+        menu.style.display = 'none';
+    }
+});
+
+// 菜单项点击时也隐藏菜单
+document.querySelectorAll('.custom-menu-item').forEach(item => {
+    item.addEventListener('click', function() {
+        document.getElementById('customMenu').style.display = 'none';
+    });
+});
+
+// 显示通知
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.style.display = 'block';
+
+    setTimeout(function() {
+        notification.style.display = 'none';
+    }, 2000);
+}
+
+// 添加键盘事件监听器
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'F12') {
+        e.preventDefault();
+        showNotification('开发者工具已禁用');
+    }
+
+    if (e.ctrlKey && e.key === 'u') {
+        e.preventDefault();
+        showNotification('查看源代码功能已禁用');
+    }
+
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        showNotification('开发者工具已禁用');
+    }
+});
+
+// 防止拖拽图片
+document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+
+// 窗口调整大小时隐藏菜单
+window.addEventListener('resize', function() {
+    document.getElementById('customMenu').style.display = 'none';
+});
+
+// 滚动时隐藏菜单
+window.addEventListener('scroll', function() {
+    document.getElementById('customMenu').style.display = 'none';
+});
+
+// ESC键隐藏菜单
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.getElementById('customMenu').style.display = 'none';
+    }
+});
