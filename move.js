@@ -657,3 +657,86 @@ function refreshPage() {
         window.location.reload();
     }, 500);
 }
+
+// 在文档3的适当位置添加以下代码（建议放在DOMContentLoaded事件监听器内）
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 其他初始化代码...
+
+    // 加载页面配置并生成切换按钮
+    loadPagesConfig();
+
+    // 其他初始化代码...
+});
+
+// 动态加载页面配置并生成切换按钮
+function loadPagesConfig() {
+    // 使用硬编码的pages变量作为示例
+    const pages = [
+        {
+            "name": "妙妙",
+            "path": "index.html",
+            "avatar": "miaomiao-image/avatar.jpg"
+        },
+        {
+            "name": "烛风",
+            "path": "wispyn.html",
+            "avatar": "wispyn-image/avatar.png"
+        }
+        // 可以在这里添加更多页面
+    ];
+
+    const buttonsGrid = document.querySelector('.buttons-grid');
+    if (!buttonsGrid) {
+        console.error('无法找到按钮容器元素');
+        return;
+    }
+
+    // 清空现有按钮
+    buttonsGrid.innerHTML = '';
+
+    // 获取当前页面路径
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+    // 为每个页面创建按钮
+    pages.forEach(page => {
+        // 如果当前页面就是配置中的页面，则不显示该按钮
+        if (page.path === currentPage) return;
+
+        const button = document.createElement('a');
+        button.className = 'sub-btn';
+        button.href = page.path;
+        button.target = '_blank';
+
+        // 创建头像图片元素
+        const avatarImg = document.createElement('img');
+        avatarImg.className = 'avatar3';
+        avatarImg.src = page.avatar;
+        avatarImg.alt = page.name;
+        avatarImg.loading = 'lazy';
+
+        // 创建图标容器
+        const icon = document.createElement('i');
+        icon.className = 'fas fa-home';
+        icon.appendChild(avatarImg);
+
+        // 创建名称span
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = page.name;
+
+        // 组装按钮
+        button.appendChild(icon);
+        button.appendChild(nameSpan);
+
+        buttonsGrid.appendChild(button);
+    });
+
+    // 如果没有其他页面可切换，显示提示
+    if (buttonsGrid.children.length === 0) {
+        const warn = document.querySelector('.warn') || document.createElement('h4');
+        warn.className = 'warn';
+        warn.textContent = '🐾🐾已展示全部兽兽🐾🐾';
+        buttonsGrid.appendChild(warn);
+    }
+}
+

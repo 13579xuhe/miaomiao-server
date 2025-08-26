@@ -1,0 +1,14 @@
+{
+    "pages": [
+        {
+            "name": "妙妙",
+            "path": "index.html",
+            "avatar": "miaomiao-image/avatar.jpg"
+        },
+        {
+            "name": "烛风",
+            "path": "wispyn.html",
+            "avatar": "wispyn-image/avatar.png"
+        }
+    ]
+}

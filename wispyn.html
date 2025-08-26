@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>🐾烛风的小窝🐾</title>
+    <link rel="stylesheet" href="css/wispyn.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="move.js"></script>
+</head>
+
+<body>
+
+<div class="custom-menu" id="customMenu">
+    <div class="custom-menu-item" onclick="refreshPage()">刷新</div>
+    <div class="custom-menu-item" onclick="showNotification('已分享内容')">分享</div>
+    <div class="custom-menu-item" onclick="showNotification('已查看页面信息')">页面信息</div>
+    <div class="custom-menu-divider"></div>
+    <div class="custom-menu-item" onclick="showNotification('抱歉，此功能已禁用')">查看源代码</div>
+</div>
+
+<div class="notification" id="notification"></div>
+
+<header>
+    <h1>🐾烛风的小窝🐾</h1>
+</header>
+
+<!-- 添加到<body>标签内 -->
+<div class="furry-decorations">
+    <!-- 爪印元素 -->
+    <div class="furry-paw furry-paw1">🐾</div>
+    <div class="furry-paw furry-paw2">🐾</div>
+    <div class="furry-paw furry-paw3">🐾</div>
+
+    <!-- 毛球元素 -->
+    <div class="furry-fluff furry-fluff1"></div>
+    <div class="furry-fluff furry-fluff2"></div>
+</div>
+
+<!-- 添加到<body>标签内 -->
+<div id="music-player" class="music-player">
+    <audio id="bg-music" loop>
+        <source src="background-music.mp3" type="audio/mpeg">
+        <source src="background-music.mp3" type="audio/ogg">
+    </audio>
+
+    <div class="record-container">
+        <div class="record" id="record">
+            <div class="record-center"></div>
+        </div>
+        <div class="record-controls">
+            <button id="play-pause" class="record-btn" aria-label="播放/暂停">
+                <span class="play-icon">▶</span>
+            </button>
+            <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.1" value="0.3">
+        </div>
+    </div>
+</div>
+
+<div class="you-box">
+    <div class="name">
+        <h4>名字:&ensp;烛风</h4>
+        <h4>性别:&ensp;男</h4>
+        <h4>性格:&ensp;超雄</h4>
+        <h4>生日:&ensp;12月18日</h4>
+        <h4>家乡:吉林长春</h4>
+    </div>
+    <div class="avatar">
+        <img src="wispyn-image/avatar.png" alt="avatar" class="avatar2" loading="lazy">
+    </div>
+</div>
+
+<!-- 爱好部分 -->
+<div class="hobby" id="hobby">
+    <h3>爱好</h3>
+    <div class="hobby-item">睡觉</div>
+    <div class="hobby-item">吃饭</div>
+    <div class="hobby-item">三角洲</div>
+</div>
+
+<!-- 成就部分 -->
+<div class="achievement" id="achievement">
+    <h3>成就以及活动</h3>
+    <div class="hobby-item">无</div>
+</div>
+
+<div class="video" id="videos">
+    <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=115094855947435&bvid=BV1KhvNzcE4G&cid=31957059361&p=1"
+            class="video1">
+    </iframe>
+</div>
+
+<!-- 轮播图HTML结构 -->
+<div class="container">
+    <div class="carousel-container">
+        <div class="carousel-slides">
+            <div class="carousel-slide">
+                <img src="wispyn-image/1.jpg" alt="1" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+                <img src="wispyn-image/2.jpg" alt="2" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+                <img src="wispyn-image/3.jpg" alt="3" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+                <img src="wispyn-image/4.jpg" alt="4" loading="lazy" >
+            </div>
+            <div class="carousel-slide">
+                <img src="wispyn-image/5.jpg" alt="5" loading="lazy" >
+            </div>
+        </div>
+
+        <div class="carousel-controls">
+            <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="carousel-indicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+
+        <div class="carousel-progress">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+</div>
+
+<div class="button" id="button">
+    <h3>社交账号</h3>
+    <img src="wispyn-image/QQ.png" alt="QQ" class="button-img2" loading="lazy">
+</div>
+
+<div class="main-btn" id="mainBtn">
+    <i class="fas fa-plus">🐾切换至其他兽兽🐾</i>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">请选择兽兽🐾</h2>
+            <div class="close-btn" id="closeBtn">
+                <i class="fas fa-times">X</i>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="buttons-grid">
+                <!-- 按钮将由JavaScript动态生成 -->
+            </div>
+            <!-- 提示信息将由JavaScript动态添加 -->
+        </div>
+    </div>
+</div>
+</body>
+</html>
