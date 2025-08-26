@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="增加烛风页面" />
+    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="烛风页面颜色更改" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,7 +88,7 @@
       <workItem from="1756051306034" duration="10997000" />
       <workItem from="1756116862157" duration="7737000" />
       <workItem from="1756130019037" duration="7474000" />
-      <workItem from="1756180392291" duration="11242000" />
+      <workItem from="1756180392291" duration="11552000" />
     </task>
     <task id="LOCAL-00001" summary="增加活动">
       <option name="closed" value="true" />
@@ -234,7 +234,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756210886469</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="烛风页面颜色更改">
+      <option name="closed" value="true" />
+      <created>1756211361860</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1756211361860</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +268,7 @@
     <MESSAGE value="优化" />
     <MESSAGE value="禁用右键菜单" />
     <MESSAGE value="增加烛风页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加烛风页面" />
+    <MESSAGE value="烛风页面颜色更改" />
+    <option name="LAST_COMMIT_MESSAGE" value="烛风页面颜色更改" />
   </component>
 </project>
