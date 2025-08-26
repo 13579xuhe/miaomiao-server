@@ -1,11 +1,11 @@
 :root {
-    --primary-color: #b700ff;
-    --secondary-color: rgba(255, 0, 136, 0.44);
+    --primary-color: rgba(27, 110, 213, 0.98);
+    --secondary-color: rgba(115, 0, 255, 0.44);
     --text-color: #333;
-    --box-bg-1: #f0f0f0ad;
-    --box-bg-2: #afffddad;
-    --box-bg-3: rgba(219, 175, 255, 0.68);
-    --box-bg-4: rgba(175, 236, 255, 0.68);
+    --box-bg-1: rgba(255, 255, 255, 0.68);
+    --box-bg-2: rgba(175, 200, 255, 0.68);
+    --box-bg-3: rgba(175, 176, 255, 0.68);
+    --box-bg-4: rgba(175, 198, 255, 0.68);
     --border-radius: 10px;
     --box-padding: 20px;
     --transition-speed: 0.3s;
@@ -778,7 +778,7 @@ h4 {
 .main-btn {
     width: 80%;
     height: 80px;
-    background: linear-gradient(45deg, #9a4008, #ff6200);
+    background: linear-gradient(45deg, #08369a, #1100ff);
     border-radius: 20px;
     color: white;
     display: flex;
@@ -786,7 +786,7 @@ h4 {
     align-items: center;
     font-size: 28px;
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(255, 0, 51, 0.5);
+    box-shadow: 0 8px 25px rgba(0, 34, 255, 0.5);
     margin: 30px auto;
     transition: all 0.3s ease;
     position: relative;
@@ -795,7 +795,7 @@ h4 {
 
 .main-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 10px 30px rgba(255, 0, 51, 0.7);
+    box-shadow: 0 10px 30px rgba(8, 0, 255, 0.7);
 }
 
 .main-btn-text {

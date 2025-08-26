@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="禁用右键菜单">
-      <change afterPath="$PROJECT_DIR$/css/wispyn.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wispyn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/avatar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/move.js" beforeDir="false" afterPath="$PROJECT_DIR$/move.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="增加烛风页面" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,6 +64,7 @@
       <recent name="C:\Users\miaomiaomoli\Desktop\miaomiao-server\html" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\miaomiaomoli\Desktop\miaomiao-server\miaomiao-image" />
       <recent name="C:\Users\miaomiaomoli\Desktop\miaomiao-server\css" />
       <recent name="C:\Users\miaomiaomoli\Desktop\miaomiao-server" />
       <recent name="C:\Users\miaomiaomoli\Desktop\miaomiao-server\html" />
@@ -100,7 +88,7 @@
       <workItem from="1756051306034" duration="10997000" />
       <workItem from="1756116862157" duration="7737000" />
       <workItem from="1756130019037" duration="7474000" />
-      <workItem from="1756180392291" duration="10945000" />
+      <workItem from="1756180392291" duration="11242000" />
     </task>
     <task id="LOCAL-00001" summary="增加活动">
       <option name="closed" value="true" />
@@ -230,7 +218,23 @@
       <option name="project" value="LOCAL" />
       <updated>1756184183512</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="增加烛风页面">
+      <option name="closed" value="true" />
+      <created>1756210873198</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1756210873200</updated>
+    </task>
+    <task id="LOCAL-00018" summary="增加烛风页面">
+      <option name="closed" value="true" />
+      <created>1756210886469</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1756210886469</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +259,7 @@
     <MESSAGE value="页面切换按钮" />
     <MESSAGE value="优化" />
     <MESSAGE value="禁用右键菜单" />
-    <option name="LAST_COMMIT_MESSAGE" value="禁用右键菜单" />
+    <MESSAGE value="增加烛风页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加烛风页面" />
   </component>
 </project>
