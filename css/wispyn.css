@@ -7,7 +7,7 @@
     --box-bg-3: rgba(175, 176, 255, 0.68);
     --box-bg-4: rgba(175, 198, 255, 0.68);
     --border-radius: 10px;
-    --box-padding: 20px;
+    --box-padding: 15px;
     --transition-speed: 0.3s;
     --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -15,7 +15,6 @@
 title{
     font-size: 20px;
 }
-
 /* ===== 基础样式 ===== */
 * {
     margin: 0;
@@ -69,6 +68,7 @@ h4 {
 
 .container {
     background-color: var(--secondary-color);
+    height: 100%;
 }
 
 .you-box {

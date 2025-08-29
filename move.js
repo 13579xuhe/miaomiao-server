@@ -740,3 +740,48 @@ function loadPagesConfig() {
     }
 }
 
+// 动态调整轮播图高度
+function adjustCarouselHeight() {
+    const carouselContainer = document.querySelector('.carousel-container');
+    const carouselSlides = document.querySelector('.carousel-slides');
+    const slides = document.querySelectorAll('.carousel-slide');
+
+    // 重置高度，让浏览器重新计算
+    carouselSlides.style.height = 'auto';
+    carouselContainer.style.height = 'auto';
+
+    // 获取当前活动slide的高度
+    const activeIndex = Math.round(carouselSlides.scrollLeft / carouselSlides.offsetWidth);
+    const activeSlide = slides[activeIndex];
+
+    if (activeSlide) {
+        const slideHeight = activeSlide.offsetHeight;
+        // 设置容器高度为当前活动slide的高度
+        carouselSlides.style.height = slideHeight + 'px';
+        carouselContainer.style.height = slideHeight + 'px';
+    }
+}
+
+// 初始化
+window.addEventListener('load', function() {
+    // 等待所有图片加载完成
+    const images = document.querySelectorAll('.carousel-slide img');
+    let loadedCount = 0;
+
+    images.forEach(img => {
+        if (img.complete) {
+            loadedCount++;
+        } else {
+            img.addEventListener('load', function() {
+                loadedCount++;
+                if (loadedCount === images.length) {
+                    adjustCarouselHeight();
+                }
+            });
+        }
+    });
+
+    if (loadedCount === images.length) {
+        adjustCarouselHeight();
+    }
+});
