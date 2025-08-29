@@ -9,6 +9,11 @@
             "name": "烛风",
             "path": "wispyn.html",
             "avatar": "wispyn-image/avatar.png"
+        },
+        {
+            "name": "脑干",
+            "path": "naogan.html",
+            "avatar": "naogan-image/avatar.png"
         }
     ]
 }

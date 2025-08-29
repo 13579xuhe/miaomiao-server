@@ -1,14 +1,13 @@
-/* ===== 变量定义 ===== */
 :root {
-    --primary-color: #15b7ff;
-    --secondary-color: rgba(255, 0, 136, 0.44);
-    --text-color: #333;
-    --box-bg-1: #f0f0f0ad;
-    --box-bg-2: #afffddad;
-    --box-bg-3: rgba(219, 175, 255, 0.68);
-    --box-bg-4: rgba(175, 236, 255, 0.68);
+    --primary-color: rgba(27, 27, 25, 0.98);
+    --secondary-color: rgba(115, 0, 255, 0.44);
+    --text-color: #e8c008;
+    --box-bg-1: rgba(255, 255, 255, 0.34);
+    --box-bg-2: rgba(175, 200, 255, 0.68);
+    --box-bg-3: rgba(175, 176, 255, 0.68);
+    --box-bg-4: rgba(175, 198, 255, 0.68);
     --border-radius: 10px;
-    --box-padding: 20px;
+    --box-padding: 15px;
     --transition-speed: 0.3s;
     --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -16,9 +15,9 @@
 title{
     font-size: 20px;
 }
-
 /* ===== 基础样式 ===== */
 * {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -27,7 +26,7 @@ body {
     font-family: 'MyCustomFont', Arial, sans-serif;
     font-weight: normal;
     line-height: 1.5;
-    color: var(--text-color);
+    color: #ffd000;
     background-color: var(--primary-color);
     background-image: url("../images/background-image.svg");
     background-repeat: repeat;
@@ -43,6 +42,7 @@ header {
 }
 
 h1 {
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
     margin: 15px 0;
 }
 
@@ -109,8 +109,8 @@ h4 {
     position: absolute;
     width: 30%;
     height: auto;
-    top: -80px;
-    left: 100%;
+    top: -60px;
+    left: 30%;
     max-width: 130px;
     min-width: 100px;
 }
@@ -121,13 +121,14 @@ h4 {
 }
 
 .name {
-    width: 300px;
+    width: 950px;
     font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
 /* ===== 兴趣项样式 ===== */
 .hobby-item {
     background-color: rgba(240, 240, 240, 0.55);
+    color: #000000;
     padding: 0.7rem 1.25rem;
     border-radius: 20px;
     font-size: 0.875rem;
@@ -208,35 +209,48 @@ h4 {
     overflow: hidden;
     border-radius: 16px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    /* 动态高度关键设置 */
+    height: auto;
+    min-height: 200px; /* 最小高度保证 */
+    transition: height 0.3s ease; /* 高度变化动画 */
 }
 
 .carousel-slides {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    height: 450px;
+    will-change: transform;
+    /* 高度由内容决定 */
+    height: auto;
 }
 
 .carousel-slide {
     min-width: 100%;
-    height: 100%;
+    /* 关键：高度由内容撑开 */
+    height: auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
+/* 图片样式 - 保持原始比例 */
 .carousel-slide img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    max-height: 80vh; /* 防止过大图片 */
+    object-fit: contain; /* 保持比例不拉伸 */
     display: block;
 }
 
+/* 内容区域 - 自动撑开 */
 .slide-content {
-    position: absolute;
-    bottom: 0;
+    position: relative; /* 改为相对定位 */
     background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
     color: white;
     width: 100%;
-    padding: 1.5625rem;
+    padding: 1.5rem;
     text-align: center;
+    /* 推到幻灯片底部 */
+    margin-top: auto;
 }
 
 .carousel-controls {
@@ -302,13 +316,15 @@ h4 {
 .progress-bar {
     height: 100%;
     width: 0;
-    background: white;
+    background: #ffffff;
     transition: width 0.3s ease;
 }
 
+
+
 /* 指示器激活状态 */
 .carousel-indicators .indicator.active {
-    background: #00a6ff;
+    background: #0095ff;
     transform: scale(1.2);
     box-shadow: 0 0 10px rgba(255,255,255,0.8);
 }
@@ -790,15 +806,15 @@ h4 {
 .main-btn {
     width: 80%;
     height: 80px;
-    background: linear-gradient(45deg, #9a4008, #ff6200);
+    background: linear-gradient(45deg,#cb9611, #fcd125);
     border-radius: 20px;
-    color: white;
+    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 28px;
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(255, 0, 51, 0.5);
+    box-shadow: 0 8px 25px rgba(255, 196, 0, 0.5);
     margin: 30px auto;
     transition: all 0.3s ease;
     position: relative;
@@ -807,7 +823,7 @@ h4 {
 
 .main-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 10px 30px rgba(255, 0, 51, 0.7);
+    box-shadow: 0 10px 30px rgba(255, 196, 0, 0.7);
 }
 
 .main-btn-text {
@@ -864,7 +880,7 @@ h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    background: linear-gradient(45deg, #cb9611, #fcd125);
     color: white;
     border-radius: 20px 20px 0 0;
 }
@@ -906,7 +922,7 @@ h4 {
     flex-direction: column;
     align-items: center;
     padding: 15px 10px;
-    background: rgba(0, 129, 255, 0.43);
+    background: rgba(255, 196, 0, 0.43);
     border-radius: 12px;
     text-decoration: none;
     color: #444;
@@ -914,23 +930,12 @@ h4 {
     border: 1px solid #eee;
 }
 
+/*切换按钮悬浮颜色*/
+
 .sub-btn:hover {
-    background: #0b7ded;
+    background: rgba(236, 198, 11, 0.9);
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
-
-.sub-btn i {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 12px;
-    font-size: 1.1rem;
 }
 
 .sub-btn span {

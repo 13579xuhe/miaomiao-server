@@ -694,6 +694,11 @@ function loadPagesConfig() {
             "path": "wispyn.html",
             "avatar": "wispyn-image/avatar.png"
         },
+        {
+            "name": "飞天脑干",
+            "path": "naogan.html",
+            "avatar": "naogan-image/avatar.png"
+        },
     ];
 
     const buttonsGrid = document.querySelector('.buttons-grid');
@@ -795,4 +800,3 @@ window.addEventListener('load', function() {
         adjustCarouselHeight();
     }
 });
-
