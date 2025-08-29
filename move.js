@@ -526,3 +526,262 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// 禁用右键菜单
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+
+    // 显示自定义菜单
+    const menu = document.getElementById('customMenu');
+    menu.style.display = 'block';
+
+    // 获取视口尺寸和滚动位置
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const scrollX = window.scrollX || window.pageXOffset;
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    // 获取菜单尺寸
+    const menuWidth = menu.offsetWidth;
+    const menuHeight = menu.offsetHeight;
+
+    // 计算鼠标在视口中的位置（考虑滚动）
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+
+    // 计算菜单位置，确保不会超出视口
+    let menuX = mouseX;
+    let menuY = mouseY;
+
+    // 水平方向调整：如果右边超出，显示在左边
+    if (menuX + menuWidth > viewportWidth) {
+        menuX = viewportWidth - menuWidth - 5;
+    }
+
+    // 垂直方向调整：如果底部超出，显示在上边
+    if (menuY + menuHeight > viewportHeight) {
+        menuY = viewportHeight - menuHeight - 5;
+    }
+
+    // 确保位置不小于0
+    menuX = Math.max(5, menuX);
+    menuY = Math.max(5, menuY);
+
+    // 设置菜单位置（相对于视口）
+    menu.style.left = menuX + 'px';
+    menu.style.top = menuY + 'px';
+    menu.style.position = 'fixed'; // 使用fixed定位
+
+    // 显示鼠标位置（调试用）
+    const mousePos = document.getElementById('mousePosition');
+    mousePos.textContent = `视口X: ${mouseX}, 视口Y: ${mouseY}\n页面X: ${e.pageX}, 页面Y: ${e.pageY}\n滚动X: ${scrollX}, 滚动Y: ${scrollY}`;
+    mousePos.style.display = 'block';
+
+    setTimeout(() => {
+        mousePos.style.display = 'none';
+    }, 3000);
+});
+
+// 点击其他地方隐藏菜单
+document.addEventListener('click', function(e) {
+    const menu = document.getElementById('customMenu');
+    // 检查点击的不是菜单本身
+    if (!menu.contains(e.target) && menu.style.display === 'block') {
+        menu.style.display = 'none';
+    }
+});
+
+// 菜单项点击时也隐藏菜单
+document.querySelectorAll('.custom-menu-item').forEach(item => {
+    item.addEventListener('click', function() {
+        document.getElementById('customMenu').style.display = 'none';
+    });
+});
+
+// 显示通知
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.style.display = 'block';
+
+    setTimeout(function() {
+        notification.style.display = 'none';
+    }, 2000);
+}
+
+// 添加键盘事件监听器
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'F12') {
+        e.preventDefault();
+        showNotification('开发者工具已禁用');
+    }
+
+    if (e.ctrlKey && e.key === 'u') {
+        e.preventDefault();
+        showNotification('查看源代码功能已禁用');
+    }
+
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        showNotification('开发者工具已禁用');
+    }
+});
+
+// 防止拖拽图片
+document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+
+// 窗口调整大小时隐藏菜单
+window.addEventListener('resize', function() {
+    document.getElementById('customMenu').style.display = 'none';
+});
+
+// 滚动时隐藏菜单
+window.addEventListener('scroll', function() {
+    document.getElementById('customMenu').style.display = 'none';
+});
+
+// ESC键隐藏菜单
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.getElementById('customMenu').style.display = 'none';
+    }
+});
+
+function refreshPage() {
+    showNotification('正在刷新页面...');
+    setTimeout(() => {
+        window.location.reload();
+    }, 500);
+}
+
+// 在文档3的适当位置添加以下代码（建议放在DOMContentLoaded事件监听器内）
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 其他初始化代码...
+
+    // 加载页面配置并生成切换按钮
+    loadPagesConfig();
+
+    // 其他初始化代码...
+});
+
+// 动态加载页面配置并生成切换按钮
+function loadPagesConfig() {
+    // 使用硬编码的pages变量作为示例
+    const pages = [
+        {
+            "name": "妙妙",
+            "path": "index.html",
+            "avatar": "miaomiao-image/avatar.jpg"
+        },
+        {
+            "name": "烛风",
+            "path": "wispyn.html",
+            "avatar": "wispyn-image/avatar.png"
+        }
+        // 可以在这里添加更多页面
+    ];
+
+    const buttonsGrid = document.querySelector('.buttons-grid');
+    if (!buttonsGrid) {
+        console.error('无法找到按钮容器元素');
+        return;
+    }
+
+    // 清空现有按钮
+    buttonsGrid.innerHTML = '';
+
+    // 获取当前页面路径
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+    // 为每个页面创建按钮
+    pages.forEach(page => {
+        // 如果当前页面就是配置中的页面，则不显示该按钮
+        if (page.path === currentPage) return;
+
+        const button = document.createElement('a');
+        button.className = 'sub-btn';
+        button.href = page.path;
+        button.target = '_blank';
+
+        // 创建头像图片元素
+        const avatarImg = document.createElement('img');
+        avatarImg.className = 'avatar3';
+        avatarImg.src = page.avatar;
+        avatarImg.alt = page.name;
+        avatarImg.loading = 'lazy';
+
+        // 创建图标容器
+        const icon = document.createElement('i');
+        icon.className = 'fas fa-home';
+        icon.appendChild(avatarImg);
+
+        // 创建名称span
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = page.name;
+
+        // 组装按钮
+        button.appendChild(icon);
+        button.appendChild(nameSpan);
+
+        buttonsGrid.appendChild(button);
+    });
+
+    // 如果没有其他页面可切换，显示提示
+    if (buttonsGrid.children.length === 0) {
+        const warn = document.querySelector('.warn') || document.createElement('h4');
+        warn.className = 'warn';
+        warn.textContent = '🐾🐾已展示全部兽兽🐾🐾';
+        buttonsGrid.appendChild(warn);
+    }
+}
+
+// 动态调整轮播图高度
+function adjustCarouselHeight() {
+    const carouselContainer = document.querySelector('.carousel-container');
+    const carouselSlides = document.querySelector('.carousel-slides');
+    const slides = document.querySelectorAll('.carousel-slide');
+
+    // 重置高度，让浏览器重新计算
+    carouselSlides.style.height = 'auto';
+    carouselContainer.style.height = 'auto';
+
+    // 获取当前活动slide的高度
+    const activeIndex = Math.round(carouselSlides.scrollLeft / carouselSlides.offsetWidth);
+    const activeSlide = slides[activeIndex];
+
+    if (activeSlide) {
+        const slideHeight = activeSlide.offsetHeight;
+        // 设置容器高度为当前活动slide的高度
+        carouselSlides.style.height = slideHeight + 'px';
+        carouselContainer.style.height = slideHeight + 'px';
+    }
+}
+
+// 初始化
+window.addEventListener('load', function() {
+    // 等待所有图片加载完成
+    const images = document.querySelectorAll('.carousel-slide img');
+    let loadedCount = 0;
+
+    images.forEach(img => {
+        if (img.complete) {
+            loadedCount++;
+        } else {
+            img.addEventListener('load', function() {
+                loadedCount++;
+                if (loadedCount === images.length) {
+                    adjustCarouselHeight();
+                }
+            });
+        }
+    });
+
+    if (loadedCount === images.length) {
+        adjustCarouselHeight();
+    }
+});
