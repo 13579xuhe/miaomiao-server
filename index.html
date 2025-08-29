@@ -2,24 +2,13 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>🐾妙妙墨璃的小窝🐾</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>妙妙墨璃的小窝</title>
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <script src="move.js"></script>
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="41e2a773-9216-4cb5-b08d-3d5ec0e4f746"></script>
+    <script src="./move.js"></script>
 </head>
 
 <body>
-
-<div class="custom-menu" id="customMenu">
-    <div class="custom-menu-item" onclick="refreshPage()">刷新</div>
-    <div class="custom-menu-item" onclick="showNotification('已分享内容')">分享</div>
-    <div class="custom-menu-item" onclick="showNotification('已查看页面信息')">页面信息</div>
-    <div class="custom-menu-divider"></div>
-    <div class="custom-menu-item" onclick="showNotification('抱歉，此功能已禁用')">查看源代码</div>
-</div>
-
-<div class="notification" id="notification"></div>
 
 <header>
     <h1>🐾妙妙墨璃的小窝🐾</h1>
@@ -66,7 +55,7 @@
         <h4>家乡:&ensp;吉林省吉林市</h4>
     </div>
     <div class="avatar">
-        <img src="miaomiao-image/avatar.jpg" alt="avatar" class="avatar2" loading="lazy">
+        <img src="./images/avatar.jpg" alt="avatar" class="avatar2" loading="lazy">
     </div>
 </div>
 
@@ -117,16 +106,16 @@
     <div class="carousel-container">
         <div class="carousel-slides">
             <div class="carousel-slide">
-                <img src="miaomiao-image/1.jpg" alt="1" loading="lazy">
+                <img src="./images/1.jpg" alt="1" loading="lazy">
             </div>
             <div class="carousel-slide">
-                <img src="miaomiao-image/2.jpg" alt="2" loading="lazy">
+                <img src="./images/2.jpg" alt="2" loading="lazy">
             </div>
             <div class="carousel-slide">
-                <img src="miaomiao-image/3.jpg" alt="3" loading="lazy">
+                <img src="./images/3.jpg" alt="3" loading="lazy">
             </div>
             <div class="carousel-slide">
-                <img src="miaomiao-image/4.jpg" alt="4" loading="lazy" >
+                <img src="./images/4.jpg" alt="4" loading="lazy" >
             </div>
         </div>
 
@@ -151,25 +140,25 @@
 <div class="button" id="button">
     <h3>社交账号</h3>
     <a href="https://b23.tv/XoZ7MAC" target="_blank">
-        <img src="images/bilibili.png" alt="哔站跳转" class="button-img" loading="lazy">
+        <img src="./images/bilibili.png" alt="哔站跳转" class="button-img" loading="lazy">
     </a>
     <a href="https://v.kuaishou.com/JgJ4jsS2" target="_blank">
-        <img src="images/kuaishou.png" alt="快手跳转" class="button-img" loading="lazy">
+        <img src="./images/kuaishou.png" alt="快手跳转" class="button-img" loading="lazy">
     </a>
     <a href="https://v.douyin.com/LgkwcQfotjE/ 0@5.com" target="_blank">
-        <img src="images/tiktok.png" alt="抖音跳转" class="button-img" loading="lazy">
+        <img src="./images/tiktok.png" alt="抖音跳转" class="button-img" loading="lazy">
     </a>
     <a href="https://youtube.com/@miaomiao-xz8er?si=qAptD0x0A9I5Uiv7" target="_blank">
-        <img src="images/youtube.png" alt="youtube跳转" class="button-img" loading="lazy">
+        <img src="./images/youtube.png" alt="youtube跳转" class="button-img" loading="lazy">
     </a>
     <a href="https://www.telegram.com" target="_blank">
-        <img src="images/telegram.png" alt="telegram跳转" class="button-img" loading="lazy">
+        <img src="./images/telegram.png" alt="telegram跳转" class="button-img" loading="lazy">
     </a>
     <a href="https://www.instagram.com/miqimiaomiaowushi?igsh=MXN4MTNhZGxicWR1bg==" target="_blank">
-        <img src="images/instgram.png" alt="instgram跳转" class="button-img" loading="lazy">
+        <img src="./images/instgram.png" alt="instgram跳转" class="button-img" loading="lazy">
     </a>
-    <img src="miaomiao-image/WX.jpg" alt="微信" class="button-img2" loading="lazy">
-    <img src="miaomiao-image/QQ.jpg" alt="QQ" class="button-img2" loading="lazy">
+    <img src="./images/WX.jpg" alt="微信" class="button-img2" loading="lazy">
+    <img src="./images/QQ.jpg" alt="QQ" class="button-img2" loading="lazy">
 </div>
 
 <div class="main-btn" id="mainBtn">
@@ -186,9 +175,12 @@
         </div>
         <div class="modal-body">
             <div class="buttons-grid">
-                <!-- 按钮将由JavaScript动态生成 -->
+                <a href="./index.html" class="sub-btn" target="_blank">
+                    <i class="fas fa-home"><img src="./images/avatar.jpg" class="avatar3" alt="妙妙"></i>
+                    <span>妙妙</span>
+                </a>
             </div>
-            <!-- 提示信息将由JavaScript动态添加 -->
+            <h4 class="warn">🐾已展示全部兽兽🐾</h4>
         </div>
     </div>
 </div>

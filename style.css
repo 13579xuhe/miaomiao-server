@@ -1,13 +1,14 @@
+/* ===== 变量定义 ===== */
 :root {
-    --primary-color: rgba(27, 110, 213, 0.98);
-    --secondary-color: rgba(115, 0, 255, 0.44);
+    --primary-color: #15b7ff;
+    --secondary-color: rgba(255, 0, 136, 0.44);
     --text-color: #333;
-    --box-bg-1: rgba(255, 255, 255, 0.68);
-    --box-bg-2: rgba(175, 200, 255, 0.68);
-    --box-bg-3: rgba(175, 176, 255, 0.68);
-    --box-bg-4: rgba(175, 198, 255, 0.68);
+    --box-bg-1: #f0f0f0ad;
+    --box-bg-2: #afffddad;
+    --box-bg-3: rgba(219, 175, 255, 0.68);
+    --box-bg-4: rgba(175, 236, 255, 0.68);
     --border-radius: 10px;
-    --box-padding: 15px;
+    --box-padding: 20px;
     --transition-speed: 0.3s;
     --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -15,6 +16,7 @@
 title{
     font-size: 20px;
 }
+
 /* ===== 基础样式 ===== */
 * {
     margin: 0;
@@ -28,7 +30,7 @@ body {
     line-height: 1.5;
     color: var(--text-color);
     background-color: var(--primary-color);
-    background-image: url("../images/background-image.svg");
+    background-image: url("./images/background-image.svg");
     background-repeat: repeat;
     background-size: cover;
     min-height: 100vh;
@@ -52,6 +54,7 @@ h3 {
 }
 
 h4 {
+    font-size: 0.9rem;
     margin: 5px 0;
 }
 
@@ -68,7 +71,6 @@ h4 {
 
 .container {
     background-color: var(--secondary-color);
-    height: 100%;
 }
 
 .you-box {
@@ -101,7 +103,7 @@ h4 {
 /* ===== 头像样式 ===== */
 .avatar {
     position: relative;
-    width: 50%;
+    width: 65%;
 }
 
 .avatar2 {
@@ -121,7 +123,7 @@ h4 {
 }
 
 .name {
-    width: 250px;
+    width: 200px;
     font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
@@ -284,7 +286,7 @@ h4 {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 42, 42, 0.6);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -302,7 +304,7 @@ h4 {
 .progress-bar {
     height: 100%;
     width: 0;
-    background: #ffffff;
+    background: white;
     transition: width 0.3s ease;
 }
 
@@ -361,8 +363,8 @@ h4 {
 
 @font-face {
     font-family: 'MyCustomFont';
-    src: url('../myfont.ttf') format('woff2'),
-    url('../myfont.ttf') format('woff');
+    src: url('myfont.ttf') format('woff2'),
+    url('myfont.ttf') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap; /* 优化字体加载体验 */
@@ -778,7 +780,7 @@ h4 {
 .main-btn {
     width: 80%;
     height: 80px;
-    background: linear-gradient(45deg, #08369a, #1100ff);
+    background: linear-gradient(45deg, #9a4008, #ff6200);
     border-radius: 20px;
     color: white;
     display: flex;
@@ -786,7 +788,7 @@ h4 {
     align-items: center;
     font-size: 28px;
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(0, 34, 255, 0.5);
+    box-shadow: 0 8px 25px rgba(255, 0, 51, 0.5);
     margin: 30px auto;
     transition: all 0.3s ease;
     position: relative;
@@ -795,7 +797,7 @@ h4 {
 
 .main-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 10px 30px rgba(8, 0, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(255, 0, 51, 0.7);
 }
 
 .main-btn-text {
@@ -894,7 +896,7 @@ h4 {
     flex-direction: column;
     align-items: center;
     padding: 15px 10px;
-    background: rgba(34, 0, 255, 0.43);
+    background: rgba(0, 129, 255, 0.43);
     border-radius: 12px;
     text-decoration: none;
     color: #444;
@@ -953,167 +955,3 @@ h4 {
 .warn{
     text-align: center;
 }
-
-.demo-area {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-    padding: 30px;
-    margin: 30px 0;
-    position: relative;
-}
-
-.demo-image {
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.demo-image img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.demo-image:hover img {
-    transform: scale(1.03);
-}
-
-.position-test {
-    margin-top: 30px;
-    background: rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 15px;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.grid-cell {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.grid-cell:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.custom-menu {
-    position: fixed;
-    background: rgb(120, 158, 255);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    padding: 10px 0;
-    display: none;
-    z-index: 1000;
-    min-width: 200px;
-    color: #333;
-    animation: fadeIn 0.2s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-.custom-menu-item {
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background 0.2s;
-    font-size: 14px;
-}
-
-.custom-menu-item:hover {
-    background: rgba(26, 42, 108, 0.1);
-}
-
-.custom-menu-divider {
-    height: 1px;
-    background: rgba(0, 0, 0, 0.1);
-    margin: 5px 0;
-}
-
-.notification {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 15px 25px;
-    border-radius: 50px;
-    display: none;
-    animation: slideUp 0.3s ease;
-    z-index: 1001;
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translate(-50%, 20px); }
-    to { opacity: 1; transform: translate(-50%, 0); }
-}
-
-.mouse-position {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 12px;
-    display: none;
-    z-index: 1002;
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    p {
-        font-size: 1rem;
-    }
-
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .custom-menu {
-        min-width: 180px;
-    }
-}
-
-@media (max-width: 480px) {
-    .grid-container {
-        grid-template-columns: 1fr;
-    }
-
-    .custom-menu {
-        min-width: 160px;
-        font-size: 13px;
-    }
-
-    .custom-menu-item {
-        padding: 8px 16px;
-    }
-}
-
