@@ -150,7 +150,18 @@ function updateItemsVisibility(items, maxVisible, isExpanded) {
     }
 }
 
+// DOM加载完成后初始化
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = new Carousel();
+
+    // 响应式处理（可选）
+    window.addEventListener('resize', () => {
+        carousel.updateSlidePosition();
+    });
+});
+
 // ===== 轮播图模块 =====
+
 class Carousel {
     constructor() {
         this.slidesContainer = document.querySelector('.carousel-slides');
@@ -785,3 +796,4 @@ window.addEventListener('load', function() {
         adjustCarouselHeight();
     }
 });
+

@@ -284,7 +284,7 @@ h4 {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: rgba(255, 42, 42, 0.6);
+    background: rgba(255, 255, 255, 0.6);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -304,6 +304,18 @@ h4 {
     width: 0;
     background: white;
     transition: width 0.3s ease;
+}
+
+/* 指示器激活状态 */
+.carousel-indicators .indicator.active {
+    background: #00a6ff;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+/* 平滑过渡效果 */
+.indicator {
+    transition: all 0.3s ease;
 }
 
 /* ===== 交互效果 ===== */

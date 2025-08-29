@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="优化" />
+    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="优化">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/wispyn.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/wispyn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/move.js" beforeDir="false" afterPath="$PROJECT_DIR$/move.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wispyn-image/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/wispyn-image/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wispyn-image/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/wispyn-image/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wispyn-image/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/wispyn-image/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wispyn-image/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wispyn.html" beforeDir="false" afterPath="$PROJECT_DIR$/wispyn.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +37,9 @@
     &quot;accountId&quot;: &quot;88992c3c-31f5-4229-8a40-be88767b985a&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -76,7 +90,7 @@
       <workItem from="1756130019037" duration="7474000" />
       <workItem from="1756180392291" duration="362000" />
       <workItem from="1756471868911" duration="601000" />
-      <workItem from="1756472484383" duration="324000" />
+      <workItem from="1756472484383" duration="3781000" />
     </task>
     <task id="LOCAL-00001" summary="增加活动">
       <option name="closed" value="true" />
@@ -230,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756472644024</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="优化">
+      <option name="closed" value="true" />
+      <created>1756480554291</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1756480554291</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
