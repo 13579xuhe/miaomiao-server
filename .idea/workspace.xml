@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="优化">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="优化" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,12 +20,12 @@
     &quot;assignee&quot;: &quot;13579xuhe&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:13579xuhe/miaomiao-server.git&quot;,
-    &quot;accountId&quot;: &quot;88992c3c-31f5-4229-8a40-be88767b985a&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/13579xuhe/miaomiao-server.git",
+    "accountId": "88992c3c-31f5-4229-8a40-be88767b985a"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -77,6 +75,7 @@
       <workItem from="1756116862157" duration="7737000" />
       <workItem from="1756130019037" duration="7474000" />
       <workItem from="1756180392291" duration="362000" />
+      <workItem from="1756471868911" duration="301000" />
     </task>
     <task id="LOCAL-00001" summary="增加活动">
       <option name="closed" value="true" />
@@ -190,7 +189,31 @@
       <option name="project" value="LOCAL" />
       <updated>1756137223467</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="优化">
+      <option name="closed" value="true" />
+      <created>1756471892725</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1756471892725</updated>
+    </task>
+    <task id="LOCAL-00016" summary="优化">
+      <option name="closed" value="true" />
+      <created>1756471901863</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1756471901863</updated>
+    </task>
+    <task id="LOCAL-00017" summary="优化">
+      <option name="closed" value="true" />
+      <created>1756472146333</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1756472146333</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
