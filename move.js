@@ -693,8 +693,7 @@ function loadPagesConfig() {
             "name": "烛风",
             "path": "wispyn.html",
             "avatar": "wispyn-image/avatar.png"
-        }
-        // 可以在这里添加更多页面
+        },
     ];
 
     const buttonsGrid = document.querySelector('.buttons-grid');
