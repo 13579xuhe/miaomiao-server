@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="优化">
-      <change afterPath="$PROJECT_DIR$/css/naogan.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/naogan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/wispyn.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/wispyn.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/move.js" beforeDir="false" afterPath="$PROJECT_DIR$/move.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages.json" beforeDir="false" afterPath="$PROJECT_DIR$/pages.json" afterDir="false" />
-    </list>
+    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="增加脑干界面" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +81,7 @@
       <workItem from="1756130019037" duration="7474000" />
       <workItem from="1756180392291" duration="362000" />
       <workItem from="1756471868911" duration="601000" />
-      <workItem from="1756472484383" duration="8218000" />
+      <workItem from="1756472484383" duration="8651000" />
     </task>
     <task id="LOCAL-00001" summary="增加活动">
       <option name="closed" value="true" />
@@ -267,7 +259,31 @@
       <option name="project" value="LOCAL" />
       <updated>1756484417545</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="增加脑干界面">
+      <option name="closed" value="true" />
+      <created>1756488134659</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1756488134661</updated>
+    </task>
+    <task id="LOCAL-00024" summary="增加脑干界面">
+      <option name="closed" value="true" />
+      <created>1756488178688</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1756488178688</updated>
+    </task>
+    <task id="LOCAL-00025" summary="增加脑干界面">
+      <option name="closed" value="true" />
+      <created>1756488208713</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1756488208713</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,6 +307,7 @@
     <MESSAGE value="背景音乐添加" />
     <MESSAGE value="页面切换按钮" />
     <MESSAGE value="优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化" />
+    <MESSAGE value="增加脑干界面" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加脑干界面" />
   </component>
 </project>
