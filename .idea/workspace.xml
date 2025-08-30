@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="增加脑干界面">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/naogan.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/naogan.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/myfont.ttf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,25 +39,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/miaomiaomoli/Desktop/miaomiao-server/css&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/miaomiaomoli/Desktop/miaomiao-server",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\miaomiaomoli\Desktop\miaomiao-server\css" />
       <recent name="C:\Users\miaomiaomoli\Desktop\miaomiao-server" />
+      <recent name="C:\Users\miaomiaomoli\Desktop\miaomiao-server\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\miaomiaomoli\Desktop\miaomiao-server" />
@@ -86,6 +85,7 @@
       <workItem from="1756471868911" duration="601000" />
       <workItem from="1756472484383" duration="11156000" />
       <workItem from="1756513879895" duration="319000" />
+      <workItem from="1756516050274" duration="605000" />
     </task>
     <task id="LOCAL-00001" summary="增加活动">
       <option name="closed" value="true" />
