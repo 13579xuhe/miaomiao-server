@@ -373,8 +373,8 @@ h4 {
 
 @font-face {
     font-family: 'MyCustomFont';
-    src: url('../myfont.ttf') format('woff2'),
-    url('../myfont.ttf') format('woff');
+    src: url('../myfont.ttfdata') format('woff2'),
+    url('../myfont.ttfdata') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap; /* 优化字体加载体验 */
