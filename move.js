@@ -699,6 +699,11 @@ function loadPagesConfig() {
             "path": "naogan.html",
             "avatar": "naogan-image/avatar.png"
         },
+        {
+            "name": "龙猫",
+            "path": "longmao.html",
+            "avatar": "longmao-image/avatar.jpg"
+        },
     ];
 
     const buttonsGrid = document.querySelector('.buttons-grid');

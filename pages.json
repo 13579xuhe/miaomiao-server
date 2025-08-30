@@ -14,6 +14,11 @@
             "name": "脑干",
             "path": "naogan.html",
             "avatar": "naogan-image/avatar.png"
+        },
+        {
+        "name": "龙猫",
+        "path": "longmao.html",
+        "avatar": "longmao-image/avatar.jpg"
         }
     ]
 }
