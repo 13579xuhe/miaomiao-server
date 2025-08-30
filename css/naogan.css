@@ -110,7 +110,7 @@ h4 {
     width: 30%;
     height: auto;
     top: -60px;
-    left: 30%;
+    left: 40%;
     max-width: 130px;
     min-width: 100px;
 }
@@ -121,7 +121,7 @@ h4 {
 }
 
 .name {
-    width: 950px;
+    width: 80%;
     font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
