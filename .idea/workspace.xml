@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="增加脑干界面">
-      <change afterPath="$PROJECT_DIR$/css/longmao.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/longmao.html" afterDir="false" />
+    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="增加龙猫界面">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/move.js" beforeDir="false" afterPath="$PROJECT_DIR$/move.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/naogan.html" beforeDir="false" afterPath="$PROJECT_DIR$/naogan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages.json" beforeDir="false" afterPath="$PROJECT_DIR$/pages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wispyn.html" beforeDir="false" afterPath="$PROJECT_DIR$/wispyn.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +85,7 @@
       <workItem from="1756471868911" duration="601000" />
       <workItem from="1756472484383" duration="11156000" />
       <workItem from="1756513879895" duration="319000" />
-      <workItem from="1756516050274" duration="7032000" />
+      <workItem from="1756516050274" duration="8317000" />
     </task>
     <task id="LOCAL-00001" summary="增加活动">
       <option name="closed" value="true" />
@@ -318,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756516690657</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="增加龙猫界面">
+      <option name="closed" value="true" />
+      <created>1756563617099</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1756563617099</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,6 +344,7 @@
     <MESSAGE value="页面切换按钮" />
     <MESSAGE value="优化" />
     <MESSAGE value="增加脑干界面" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加脑干界面" />
+    <MESSAGE value="增加龙猫界面" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加龙猫界面" />
   </component>
 </project>
