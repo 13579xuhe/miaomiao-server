@@ -687,22 +687,22 @@ function loadPagesConfig() {
         {
             "name": "妙妙",
             "path": "index.html",
-            "avatar": "miaomiao-image/avatar.jpg"
+            "avatar": "image/miaomiao-image/avatar.jpg"
         },
         {
             "name": "烛风",
             "path": "wispyn.html",
-            "avatar": "wispyn-image/avatar.png"
+            "avatar": "image/wispyn-image/avatar.png"
         },
         {
             "name": "飞天脑干",
             "path": "naogan.html",
-            "avatar": "naogan-image/avatar.png"
+            "avatar": "image/naogan-image/avatar.png"
         },
         {
             "name": "龙猫",
             "path": "longmao.html",
-            "avatar": "longmao-image/avatar.jpg"
+            "avatar": "image/longmao-image/avatar.jpg"
         },
     ];
 

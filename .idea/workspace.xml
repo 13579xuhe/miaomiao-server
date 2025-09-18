@@ -6,9 +6,45 @@
   <component name="ChangeListManager">
     <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="修复">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/longmao.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/longmao.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/naogan.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/naogan.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/wispyn.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/wispyn.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/myfont.ttfdata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/background-image.svg" beforeDir="false" afterPath="$PROJECT_DIR$/icon-images/background-image.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/bilibili.png" beforeDir="false" afterPath="$PROJECT_DIR$/icon-images/bilibili.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/instgram.png" beforeDir="false" afterPath="$PROJECT_DIR$/icon-images/instgram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/kuaishou.png" beforeDir="false" afterPath="$PROJECT_DIR$/icon-images/kuaishou.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/telegram.png" beforeDir="false" afterPath="$PROJECT_DIR$/icon-images/telegram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/tiktok.png" beforeDir="false" afterPath="$PROJECT_DIR$/icon-images/tiktok.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/youtube.png" beforeDir="false" afterPath="$PROJECT_DIR$/icon-images/youtube.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/longmao-image/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/longmao-image/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/longmao-image/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/longmao-image/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/longmao-image/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/longmao-image/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/longmao-image/QQ.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/longmao-image/QQ.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/longmao-image/WX.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/longmao-image/WX.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/longmao-image/avatar.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/image/longmao-image/avatar.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/longmao-image/avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/longmao-image/avatar.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/longmao.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/longmao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miaomiao-image/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/miaomiao-image/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miaomiao-image/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/miaomiao-image/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miaomiao-image/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/miaomiao-image/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miaomiao-image/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/miaomiao-image/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miaomiao-image/QQ.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/miaomiao-image/QQ.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miaomiao-image/WX.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/miaomiao-image/WX.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miaomiao-image/avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/miaomiao-image/avatar.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/move.js" beforeDir="false" afterPath="$PROJECT_DIR$/move.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naogan-image/QQ.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/naogan-image/QQ.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naogan-image/avatar.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/naogan-image/avatar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naogan.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/naogan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages.json" beforeDir="false" afterPath="$PROJECT_DIR$/pages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wispyn-image/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/wispyn-image/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wispyn-image/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/wispyn-image/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wispyn-image/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/wispyn-image/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wispyn-image/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/wispyn-image/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wispyn-image/QQ.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/wispyn-image/QQ.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wispyn-image/avatar.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/wispyn-image/avatar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wispyn.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/wispyn.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +68,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -53,7 +89,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -64,6 +100,8 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\miaomiaomoli\Desktop\miaomiao-server" />
+      <recent name="C:\Users\miaomiaomoli\Desktop\miaomiao-server\html" />
+      <recent name="C:\Users\miaomiaomoli\Desktop\miaomiao-server\image" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -89,7 +127,10 @@
       <workItem from="1756472484383" duration="11156000" />
       <workItem from="1756513879895" duration="319000" />
       <workItem from="1756516050274" duration="8317000" />
-      <workItem from="1756569528800" duration="657000" />
+      <workItem from="1756569528800" duration="2845000" />
+      <workItem from="1756573548775" duration="524000" />
+      <workItem from="1757074744678" duration="1697000" />
+      <workItem from="1758173621492" duration="373000" />
     </task>
     <task id="LOCAL-00001" summary="增加活动">
       <option name="closed" value="true" />
@@ -331,7 +372,31 @@
       <option name="project" value="LOCAL" />
       <updated>1756569824562</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="修复">
+      <option name="closed" value="true" />
+      <created>1756570272775</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1756570272775</updated>
+    </task>
+    <task id="LOCAL-00032" summary="修复">
+      <option name="closed" value="true" />
+      <created>1756570485268</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1756570485268</updated>
+    </task>
+    <task id="LOCAL-00033" summary="修复">
+      <option name="closed" value="true" />
+      <created>1756570494199</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1756570494199</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
