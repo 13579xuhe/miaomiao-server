@@ -704,6 +704,11 @@ function loadPagesConfig() {
             "path": "longmao.html",
             "avatar": "image/longmao-image/avatar.jpg"
         },
+        {
+            "name": "濊淵",
+            "path": "huiyuan.html",
+            "avatar": "image/huiyuan-image/avatar.jpg"
+        },
     ];
 
     const buttonsGrid = document.querySelector('.buttons-grid');
