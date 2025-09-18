@@ -19,6 +19,11 @@
         "name": "龙猫",
         "path": "html/longmao.html",
         "avatar": "ilongmao-image/avatar.jpg"
+        },
+        {
+            "name": "濊淵",
+            "path": "huiyuan.html",
+            "avatar": "image/huiyuan-image/avatar.jpg"
         }
     ]
 }
