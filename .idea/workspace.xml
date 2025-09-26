@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="濊淵网页添加">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/huiyuan.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/huiyuan.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/move.js" beforeDir="false" afterPath="$PROJECT_DIR$/move.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +30,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -98,7 +98,9 @@
       <workItem from="1758181389864" duration="1833000" />
       <workItem from="1758183327751" duration="27000" />
       <workItem from="1758183460826" duration="203000" />
-      <workItem from="1758186632777" duration="618000" />
+      <workItem from="1758186632777" duration="1362000" />
+      <workItem from="1758732505795" duration="36000" />
+      <workItem from="1758848192277" duration="343000" />
     </task>
     <task id="LOCAL-00001" summary="增加活动">
       <option name="closed" value="true" />
@@ -404,7 +406,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758186676623</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="濊淵网页添加">
+      <option name="closed" value="true" />
+      <created>1758187317126</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1758187317126</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

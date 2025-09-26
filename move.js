@@ -44,110 +44,92 @@ function getMaxVisible() {
     return BREAKPOINTS.lg.items;
 }
 
-// ===== 折叠功能模块 =====
 function setupCollapsibleSection(containerId) {
+    console.log(`初始化容器: ${containerId}`); // 调试
+
     const container = document.getElementById(containerId);
     if (!container) {
         console.warn(`容器元素 #${containerId} 不存在`);
         return;
     }
 
-    const items = container.querySelectorAll('.hobby-item');
+    const items = Array.from(container.querySelectorAll('.hobby-item'));
     const maxVisible = getMaxVisible();
+
+    console.log(`找到 ${items.length} 个项目，最大显示 ${maxVisible}`); // 调试
 
     // 检查是否已经有按钮
     let toggleBtn = container.querySelector('.toggle-btn');
 
-    // 如果项目数量不超过最大显示数量，则移除按钮（如果有）
+    // 如果项目数量不超过最大显示数量
     if (items.length <= maxVisible) {
+        console.log('项目数量少于最大显示数量'); // 调试
         if (toggleBtn) {
             toggleBtn.remove();
             delete sectionStates[containerId];
         }
-        // 确保所有项目都显示
-        items.forEach(item => item.style.display = 'flex');
+        items.forEach(item => {
+            item.style.display = 'flex';
+            item.removeAttribute('aria-hidden');
+        });
         return;
     }
 
-    // 如果没有按钮，创建一个新的
+    // 创建或更新按钮
     if (!toggleBtn) {
+        console.log('创建新按钮'); // 调试
         toggleBtn = document.createElement('button');
         toggleBtn.className = 'toggle-btn';
         toggleBtn.setAttribute('aria-expanded', 'false');
         toggleBtn.setAttribute('aria-label', '切换显示更多内容');
         container.appendChild(toggleBtn);
+
+        // 添加事件监听器
+        toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleSection(containerId);
+        });
     }
 
-    // 获取当前状态（默认为折叠）
+    // 初始化或更新状态
     const isExpanded = sectionStates[containerId]?.expanded || false;
-    toggleBtn.textContent = isExpanded ? '收起' : `显示更多 (${items.length - maxVisible}+)`;
-    toggleBtn.setAttribute('aria-expanded', isExpanded.toString());
-
-    // 设置初始显示状态
-    updateItemsVisibility(items, maxVisible, isExpanded);
-
-    // 切换显示/隐藏
-    function toggleItems() {
-        const nowExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-        const currentMaxVisible = getMaxVisible();
-
-        for (let i = 0; i < items.length; i++) {
-            items[i].style.display = nowExpanded ?
-                (i < currentMaxVisible ? 'flex' : 'none') : 'flex';
-        }
-
-        const newExpandedState = !nowExpanded;
-        toggleBtn.textContent = newExpandedState ? '收起' : `显示更多 (${items.length - currentMaxVisible}+)`;
-        toggleBtn.setAttribute('aria-expanded', newExpandedState.toString());
-
-        // 保存状态
-        sectionStates[containerId] = {
-            expanded: newExpandedState
-        };
-    }
-
-    // 添加事件监听器
-    function setupEventListeners() {
-        // 添加点击事件（电脑端）
-        toggleBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            toggleItems();
-        });
-
-        // 添加触摸事件支持（移动端）
-        toggleBtn.addEventListener('touchstart', function (e) {
-            e.preventDefault();
-            this.classList.add('active');
-        }, {passive: false});
-
-        toggleBtn.addEventListener('touchend', function (e) {
-            e.preventDefault();
-            this.classList.remove('active');
-            toggleItems();
-        }, {passive: false});
-
-        // 添加键盘支持
-        toggleBtn.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleItems();
-            }
-        });
-    }
-
-    setupEventListeners();
+    updateSectionVisibility(containerId, items, maxVisible, isExpanded);
 }
 
-// 更新项目可见性
-function updateItemsVisibility(items, maxVisible, isExpanded) {
-    for (let i = 0; i < items.length; i++) {
-        items[i].style.display = (i < maxVisible || isExpanded) ? 'flex' : 'none';
+function toggleSection(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
 
-        // 添加ARIA属性
-        if (i >= maxVisible) {
-            items[i].setAttribute('aria-hidden', isExpanded ? 'false' : 'true');
-        }
-    }
+    const items = Array.from(container.querySelectorAll('.hobby-item'));
+    const toggleBtn = container.querySelector('.toggle-btn');
+    const maxVisible = getMaxVisible();
+
+    const currentExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    const newExpanded = !currentExpanded;
+
+    updateSectionVisibility(containerId, items, maxVisible, newExpanded);
+}
+
+function updateSectionVisibility(containerId, items, maxVisible, isExpanded) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const toggleBtn = container.querySelector('.toggle-btn');
+    if (!toggleBtn) return;
+
+    // 更新按钮状态
+    toggleBtn.setAttribute('aria-expanded', isExpanded.toString());
+    toggleBtn.textContent = isExpanded ? '收起' : `显示更多 (${items.length - maxVisible}+)`;
+
+    // 更新项目可见性
+    items.forEach((item, index) => {
+        const shouldShow = index < maxVisible || isExpanded;
+        item.style.display = shouldShow ? 'flex' : 'none';
+        item.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+    });
+
+    // 保存状态
+    sectionStates[containerId] = { expanded: isExpanded };
 }
 
 // DOM加载完成后初始化
