@@ -669,27 +669,27 @@ function loadPagesConfig() {
         {
             "name": "妙妙",
             "path": "index.html",
-            "avatar": "image/miaomiao-image/avatar.jpg"
+            "avatar": "https://furrymiaomiao.oss-cn-beijing.aliyuncs.com/image/miaomiao-image/avatar.jpg"
         },
         {
             "name": "烛风",
             "path": "wispyn.html",
-            "avatar": "image/wispyn-image/avatar.png"
+            "avatar": "https://furrymiaomiao.oss-cn-beijing.aliyuncs.com/image/wispyn-image/avatar.png"
         },
         {
             "name": "飞天脑干",
             "path": "naogan.html",
-            "avatar": "image/naogan-image/avatar.png"
+            "avatar": "https://furrymiaomiao.oss-cn-beijing.aliyuncs.com/image/naogan-image/avatar.png"
         },
         {
             "name": "龙猫",
             "path": "longmao.html",
-            "avatar": "image/longmao-image/avatar.jpg"
+            "avatar": "https://furrymiaomiao.oss-cn-beijing.aliyuncs.com/image/longmao-image/avatar.jpg"
         },
         {
             "name": "濊淵",
             "path": "huiyuan.html",
-            "avatar": "image/huiyuan-image/avatar.jpg"
+            "avatar": "https://furrymiaomiao.oss-cn-beijing.aliyuncs.com/image/huiyuan-image/avatar.jpg"
         },
     ];
 
