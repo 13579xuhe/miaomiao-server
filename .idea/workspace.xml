@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="修复">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/huiyuan.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/huiyuan.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/longmao.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/longmao.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/naogan.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/naogan.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/wispyn.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/wispyn.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icon-images/bilibili.png" beforeDir="false" afterPath="$PROJECT_DIR$/icon-images/bilibili.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icon-images/instgram.png" beforeDir="false" afterPath="$PROJECT_DIR$/icon-images/instgram.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icon-images/kuaishou.png" beforeDir="false" afterPath="$PROJECT_DIR$/icon-images/kuaishou.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icon-images/telegram.png" beforeDir="false" afterPath="$PROJECT_DIR$/icon-images/telegram.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icon-images/tiktok.png" beforeDir="false" afterPath="$PROJECT_DIR$/icon-images/tiktok.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icon-images/youtube.png" beforeDir="false" afterPath="$PROJECT_DIR$/icon-images/youtube.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/longmao.html" beforeDir="false" afterPath="$PROJECT_DIR$/longmao.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/naogan.html" beforeDir="false" afterPath="$PROJECT_DIR$/naogan.html" afterDir="false" />
-    </list>
+    <list default="true" id="ba7cb92e-f906-4f2f-8397-5d87bb9628ac" name="更改" comment="修复" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,7 +103,7 @@
       <workItem from="1763006486004" duration="135000" />
       <workItem from="1763548512669" duration="1535000" />
       <workItem from="1763550711416" duration="367000" />
-      <workItem from="1766032432043" duration="2995000" />
+      <workItem from="1766032432043" duration="3312000" />
     </task>
     <task id="LOCAL-00001" summary="增加活动">
       <option name="closed" value="true" />
@@ -465,7 +449,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763550789034</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="修复">
+      <option name="closed" value="true" />
+      <created>1766035518175</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1766035518175</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
