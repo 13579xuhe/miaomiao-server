@@ -24,6 +24,11 @@
             "name": "濊淵",
             "path": "huiyuan.html",
             "avatar": "image/huiyuan-image/avatar.jpg"
-        }
+        },
+      {
+        "name": "墨客",
+        "path": "moke.html",
+        "avatar": "image/moke-image/avatar.jpg"
+      }
     ]
 }

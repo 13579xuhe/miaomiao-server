@@ -691,6 +691,11 @@ function loadPagesConfig() {
             "path": "huiyuan.html",
             "avatar": "https://furrymiaomiao.oss-cn-beijing.aliyuncs.com/image/huiyuan-image/avatar.jpg"
         },
+        {
+            "name": "墨客",
+            "path": "moke.html",
+            "avatar": "https://furrymiaomiao.oss-cn-beijing.aliyuncs.com/image/moke-image/avatar.jpg"
+        },
     ];
 
     const buttonsGrid = document.querySelector('.buttons-grid');
